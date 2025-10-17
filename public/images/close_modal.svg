@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="search-line" transform="translate(1 1)">
+    <rect id="Rectangle_1794" data-name="Rectangle 1794" width="24" height="24" transform="translate(-1 -1)" fill="none" opacity="0"/>
+    <path id="cross" d="M20.159.249h0a.85.85,0,0,0-1.2,0L10.2,9,1.452.249a.85.85,0,0,0-1.2,0h0a.85.85,0,0,0,0,1.2L9,10.2.249,18.957a.85.85,0,0,0,0,1.2h0a.85.85,0,0,0,1.2,0L10.2,11.407l8.753,8.753a.85.85,0,0,0,1.2,0h0a.85.85,0,0,0,0-1.2L11.407,10.2l8.753-8.753a.85.85,0,0,0,0-1.2Z" transform="translate(0.796 0.796)" fill="#80868b"/>
+  </g>
+</svg>
