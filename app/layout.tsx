@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import Header from './components/Header';
 import "./globals.css";
+import "../public/css/pages/posts.css";
 
 export const metadata = {
   title: 'Busy.az',
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="/css/pages/index.css" />
         <link rel="stylesheet" href="/css/custom.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
       </head>
       <body>
         {/* Wrapper */}
@@ -142,7 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src="/js/tippy.all.min.js" strategy="lazyOnload" />
         <Script src="/js/simplebar.min.js" strategy="lazyOnload" />
         <Script src="/js/bootstrap-slider.min.js" strategy="lazyOnload" />
-        <Script src="/js/bootstrap-select.min.js" strategy="lazyOnload" />
+        <Script src="/js/bootstrap-select.min.js" strategy="afterInteractive" />
         <Script src="/js/snackbar.js" strategy="lazyOnload" />
         <Script src="/js/clipboard.min.js" strategy="lazyOnload" />
         <Script src="/js/counterup.min.js" strategy="lazyOnload" />
@@ -156,6 +158,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             observer.observe();
           `}
         </Script>
+        <Script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" strategy="lazyOnload" />
       </body>
     </html>
   );

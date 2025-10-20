@@ -1248,3 +1248,77 @@ section.blank.active img{
 .pop input[type=checkbox] {
     accent-color: white;
 }
+.dropdown-nav {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+.grid-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid_link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.gr_news_content {
+    flex-grow: 1;
+}
+.task-listing .task-listing-description p {
+    margin: 15px 0 0 0;
+    padding: 0;
+    color: #666;
+    text-align: left;
+}
+.text-center-important {
+    text-align: center !important;
+}
+.pricing-plan h3 {
+    background-color: #005ff9;
+    color: #ffffff;
+    padding: 8px;
+}
+
+.pricing-plan .button {
+    background-color: #005ff9;
+    color: #ffffff !important;
+}
+.pricing-plan-label {
+    background-color: #005ff9;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 24px;
+    padding: 15px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.pricing-plan-label strong {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 5px;
+    line-height: 30px;
+}
+.pricing-plan-features {
+    background-color: #f0f0f0;
+}
+.button.full-width {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-top: 0 !important;
+}
+.pricing-plan-features ul {
+    padding: 20px;
+    margin: 0;
+}
+.pricing-plan:first-of-type {
+    padding-left: 10px;
+}
+.pricing-plan:last-of-type {
+    padding-right: 10px;
+}
