@@ -133,21 +133,21 @@ const AdvancedSearchPage = () => {
                             <nav id="breadcrumbs" className="dark d-none">
                                 <ul itemScope itemType="http://schema.org/BreadcrumbList">
                                     <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="https://busy.az">
+                                        <a itemProp="item" href="">
                                             Baş səhifə
                                             <meta itemProp="position" content="1" />
                                             <meta itemProp="name" content="Baş səhifə" />
                                         </a>
                                     </li>
                                     <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="https://busy.az/search">
+                                        <a itemProp="item" href="/search">
                                             Axtar
                                             <meta itemProp="position" content="2" />
                                             <meta itemProp="name" content="Axtar" />
                                         </a>
                                     </li>
                                     <li style={{ display: 'none' }} itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="https://busy.az/search/vacancy/advanced">
+                                        <a itemProp="item" href="/search/vacancy/advanced">
                                             Ətraflı axtarış
                                             <meta itemProp="position" content="3" />
                                             <meta itemProp="name" content="Ətraflı axtarış" />

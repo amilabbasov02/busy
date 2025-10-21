@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import Header from './components/Header';
+import { AuthProvider } from './contexts/AuthContext';
 import "./globals.css";
 import "../public/css/pages/posts.css";
 
@@ -30,12 +31,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {/* Wrapper */}
-        <div id="wrapper" style={{ overflowY: 'hidden' }}>
-          <Header />
-          
-          {children}
+        <AuthProvider>
+          <div id="wrapper" style={{ overflowY: 'hidden' }}>
+            <Header />
+            
+            {children}
 
-          {/* Footer */}
+            {/* Footer */}
           <div id="footer">
             <div className="footer-middle-section" style={{ borderBottom: '1px solid #484848' }}>
               <div className="container">
@@ -134,7 +136,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </AuthProvider>
         {/* Wrapper / End */}
 
         {/* Scripts */}

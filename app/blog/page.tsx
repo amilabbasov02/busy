@@ -14,7 +14,7 @@ interface Post {
 const allPosts: Post[] = Array.from({ length: 32 }, (_, i) => ({
     id: i + 1,
     title: `Blog Başlığı ${i + 1} (Səhifə ${Math.floor(i / 16) + 1})`,
-    image: `https://busy.az/storage/posts/1760094428.jpg`,
+    image: `/storage/posts/1760094428.jpg`,
     href: '#',
 }));
 
@@ -58,7 +58,7 @@ export default function Blog() {
                                 <h1>Bloq</h1>
                                 <nav id="breadcrumbs" className="dark d-none">
                                     <ul>
-                                        <li><a href="https://busy.az">Baş səhifə</a></li>
+                                        <li><a href="">Baş səhifə</a></li>
                                     </ul>
                                 </nav>
                             </div>

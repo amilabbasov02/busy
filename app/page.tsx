@@ -481,87 +481,87 @@ export default function Home() {
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169186/arqon-qaynaqcisi">Arqon qaynaqçısı</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169186/arqon-qaynaqcisi">Arqon qaynaqçısı</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/gemza-group "><i className="icon-material-outline-business"></i>Gemza Group </a>
+                                  <a className="GrayToBlue" href=" /company/gemza-group "><i className="icon-material-outline-business"></i>Gemza Group </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>bugün</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169186/arqon-qaynaqcisi">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169186/arqon-qaynaqcisi">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169184/debitor-borclari-uzre-muhasib">Debitor borcları üzrə Mühasib</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169184/debitor-borclari-uzre-muhasib">Debitor borcları üzrə Mühasib</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/geekbro "><i className="icon-material-outline-business"></i>GeekBro </a>
+                                  <a className="GrayToBlue" href=" /company/geekbro "><i className="icon-material-outline-business"></i>GeekBro </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>bugün</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169184/debitor-borclari-uzre-muhasib">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169184/debitor-borclari-uzre-muhasib">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169183/manual-qa-tester">Manual QA Tester</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169183/manual-qa-tester">Manual QA Tester</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/ocaq-scoring "><i className="icon-material-outline-business"></i>Ocaq Scoring </a>
+                                  <a className="GrayToBlue" href=" /company/ocaq-scoring "><i className="icon-material-outline-business"></i>Ocaq Scoring </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>bugün</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169183/manual-qa-tester">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169183/manual-qa-tester">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169172/marketinq-departamentinin-uiux-1-funksional-sahesinin-kicik-dizayneri-muveqqeti">Marketinq departamentinin UI/UX 1 funksional sahəsinin Kiçik dizayneri (Müvəqqəti)</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169172/marketinq-departamentinin-uiux-1-funksional-sahesinin-kicik-dizayneri-muveqqeti">Marketinq departamentinin UI/UX 1 funksional sahəsinin Kiçik dizayneri (Müvəqqəti)</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/pasha-bank "><i className="icon-material-outline-business"></i>PASHA Bank </a>
+                                  <a className="GrayToBlue" href=" /company/pasha-bank "><i className="icon-material-outline-business"></i>PASHA Bank </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>bugün</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169172/marketinq-departamentinin-uiux-1-funksional-sahesinin-kicik-dizayneri-muveqqeti">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169172/marketinq-departamentinin-uiux-1-funksional-sahesinin-kicik-dizayneri-muveqqeti">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169125/promoutertanitim-numayendesi">Promouter/Tanıtım nümayəndəsi</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169125/promoutertanitim-numayendesi">Promouter/Tanıtım nümayəndəsi</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/caspident "><i className="icon-material-outline-business"></i>Caspident </a>
+                                  <a className="GrayToBlue" href=" /company/caspident "><i className="icon-material-outline-business"></i>Caspident </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>dünən</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169125/promoutertanitim-numayendesi">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169125/promoutertanitim-numayendesi">Ətraflı</a>
                         </div>
                       </div>
                     </div>
                     <div className=" mt-5 mb-35" style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
-                      <a href="https://busy.az/vacancies" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
+                      <a href="/vacancies" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
                         Bütün vakansiyalar
                         <i className="icon-feather-check"></i>
                       </a>
@@ -573,91 +573,91 @@ export default function Home() {
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169125/promoutertanitim-numayendesi">Promouter/Tanıtım nümayəndəsi</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169125/promoutertanitim-numayendesi">Promouter/Tanıtım nümayəndəsi</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/caspident "><i className="icon-material-outline-business"></i>Caspident </a>
+                                  <a className="GrayToBlue" href=" /company/caspident "><i className="icon-material-outline-business"></i>Caspident </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>dünən</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169125/promoutertanitim-numayendesi">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169125/promoutertanitim-numayendesi">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169109/rukovoditel-otdela-po-rabote-s-klientami">Руководитель отдела по работе с клиентами</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169109/rukovoditel-otdela-po-rabote-s-klientami">Руководитель отдела по работе с клиентами</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/empire-by-asthetik-lab "><i className="icon-material-outline-business"></i>Empire by Asthetik Lab </a>
+                                  <a className="GrayToBlue" href=" /company/empire-by-asthetik-lab "><i className="icon-material-outline-business"></i>Empire by Asthetik Lab </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>dünən</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169109/rukovoditel-otdela-po-rabote-s-klientami">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169109/rukovoditel-otdela-po-rabote-s-klientami">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169107/incoming-gelme-turizm-uzre-satis-meneceri">Incoming (Gəlmə turizm) üzrə Satış Meneceri</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169107/incoming-gelme-turizm-uzre-satis-meneceri">Incoming (Gəlmə turizm) üzrə Satış Meneceri</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/baku-life-travel "><i className="icon-material-outline-business"></i>Baku Life Travel </a>
+                                  <a className="GrayToBlue" href=" /company/baku-life-travel "><i className="icon-material-outline-business"></i>Baku Life Travel </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>dünən</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169107/incoming-gelme-turizm-uzre-satis-meneceri">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169107/incoming-gelme-turizm-uzre-satis-meneceri">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169075/menedzer-po-rabote-s-klientami">Менеджер по работе с клиентами</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169075/menedzer-po-rabote-s-klientami">Менеджер по работе с клиентами</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/empire-by-asthetik-lab "><i className="icon-material-outline-business"></i>Empire by Asthetik Lab </a>
+                                  <a className="GrayToBlue" href=" /company/empire-by-asthetik-lab "><i className="icon-material-outline-business"></i>Empire by Asthetik Lab </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>dünən</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169075/menedzer-po-rabote-s-klientami">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169075/menedzer-po-rabote-s-klientami">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/169017/tender-mutexessisi">Tender mütəxəssisi</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/169017/tender-mutexessisi">Tender mütəxəssisi</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/texnostar-llc "><i className="icon-material-outline-business"></i>Texnostar LLC </a>
+                                  <a className="GrayToBlue" href=" /company/texnostar-llc "><i className="icon-material-outline-business"></i>Texnostar LLC </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>2 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/169017/tender-mutexessisi">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/169017/tender-mutexessisi">Ətraflı</a>
                         </div>
                       </div>
                     </div>
                     <div className=" mt-5 mb-35" style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
-                      <a href="https://busy.az/vacancies" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '290px', color: 'rgb(255, 255, 255)' }}>
+                      <a href="/vacancies" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '290px', color: 'rgb(255, 255, 255)' }}>
                         Bütün vakansiyalar
                         <i className="icon-feather-check"></i>
                       </a>
@@ -669,87 +669,87 @@ export default function Home() {
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168971/ingilis-dili-muellimi">İngilis dili müəllimi</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168971/ingilis-dili-muellimi">İngilis dili müəllimi</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/eland-education "><i className="icon-material-outline-business"></i>Eland Education </a>
+                                  <a className="GrayToBlue" href=" /company/eland-education "><i className="icon-material-outline-business"></i>Eland Education </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>2 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168971/ingilis-dili-muellimi">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168971/ingilis-dili-muellimi">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168911/korporativ-satis-meneceri">Korporativ Satış Meneceri</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168911/korporativ-satis-meneceri">Korporativ Satış Meneceri</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/sekerci-cafer-erol "><i className="icon-material-outline-business"></i>Şekerci Cafer Erol </a>
+                                  <a className="GrayToBlue" href=" /company/sekerci-cafer-erol "><i className="icon-material-outline-business"></i>Şekerci Cafer Erol </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>3 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168911/korporativ-satis-meneceri">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168911/korporativ-satis-meneceri">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168716/deputy-ceo">Deputy CEO</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168716/deputy-ceo">Deputy CEO</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/promco-azerbaijan-llc "><i className="icon-material-outline-business"></i>Promco Azerbaijan LLC </a>
+                                  <a className="GrayToBlue" href=" /company/promco-azerbaijan-llc "><i className="icon-material-outline-business"></i>Promco Azerbaijan LLC </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>7 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
                           <a className="list-apply-button " style={{ background: '#aaf674', color: '#000', marginRight: '5px', textAlign: 'center', fontWeight: 700 }} href="javascript:void(0);">Premium</a>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168716/deputy-ceo">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168716/deputy-ceo">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168624/bas-muhasib">Baş mühasib</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168624/bas-muhasib">Baş mühasib</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/max-print "><i className="icon-material-outline-business"></i>Max Print </a>
+                                  <a className="GrayToBlue" href=" /company/max-print "><i className="icon-material-outline-business"></i>Max Print </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>8 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168624/bas-muhasib">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168624/bas-muhasib">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168108/marketinq-kommunikasiyalari-uzre-aparici-mutexessis">Marketinq kommunikasiyaları üzrə aparıcı mütəxəssis</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168108/marketinq-kommunikasiyalari-uzre-aparici-mutexessis">Marketinq kommunikasiyaları üzrə aparıcı mütəxəssis</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/arne-group-mmc "><i className="icon-material-outline-business"></i>ARNE Group MMC </a>
+                                  <a className="GrayToBlue" href=" /company/arne-group-mmc "><i className="icon-material-outline-business"></i>ARNE Group MMC </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>16 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168108/marketinq-kommunikasiyalari-uzre-aparici-mutexessis">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168108/marketinq-kommunikasiyalari-uzre-aparici-mutexessis">Ətraflı</a>
                         </div>
                       </div>
                     </div>
                     <div className=" mt-5 mb-35" style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
-                      <a href="https://busy.az/dp/yuksek-maasli-is-elanlari" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
+                      <a href="/dp/yuksek-maasli-is-elanlari" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
                         Bütün yüksək maaşlı vakansiyalar
                         <i className="icon-feather-check"></i>
                       </a>
@@ -761,87 +761,87 @@ export default function Home() {
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168799/tecrubeci-intern">Təcrübəçi (intern)</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168799/tecrubeci-intern">Təcrübəçi (intern)</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/asterias "><i className="icon-material-outline-business"></i>ASTERIAS </a>
+                                  <a className="GrayToBlue" href=" /company/asterias "><i className="icon-material-outline-business"></i>ASTERIAS </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>4 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168799/tecrubeci-intern">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168799/tecrubeci-intern">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168763/insaat-uzre-tecrubeci">İnşaat üzrə təcrübəçi</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168763/insaat-uzre-tecrubeci">İnşaat üzrə təcrübəçi</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/amal-group "><i className="icon-material-outline-business"></i>Amal Group </a>
+                                  <a className="GrayToBlue" href=" /company/amal-group "><i className="icon-material-outline-business"></i>Amal Group </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>7 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168763/insaat-uzre-tecrubeci">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168763/insaat-uzre-tecrubeci">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168700/musteri-munasibetleri-uzre-tecrube-proqrami">Müştəri Münasibətləri Üzrə Təcrübə Proqramı</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168700/musteri-munasibetleri-uzre-tecrube-proqrami">Müştəri Münasibətləri Üzrə Təcrübə Proqramı</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/prospect-cloud-erp "><i className="icon-material-outline-business"></i>Prospect Cloud ERP </a>
+                                  <a className="GrayToBlue" href=" /company/prospect-cloud-erp "><i className="icon-material-outline-business"></i>Prospect Cloud ERP </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>7 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168700/musteri-munasibetleri-uzre-tecrube-proqrami">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168700/musteri-munasibetleri-uzre-tecrube-proqrami">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168627/intern-accountant-document-controller">Intern accountant - document controller</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168627/intern-accountant-document-controller">Intern accountant - document controller</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/azeri-m-i-drilling-fluids-llc "><i className="icon-material-outline-business"></i>Azeri M-I Drilling Fluids LLC </a>
+                                  <a className="GrayToBlue" href=" /company/azeri-m-i-drilling-fluids-llc "><i className="icon-material-outline-business"></i>Azeri M-I Drilling Fluids LLC </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>8 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168627/intern-accountant-document-controller">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168627/intern-accountant-document-controller">Ətraflı</a>
                         </div>
                       </div>
                       <div className="job-listing with-apply-button">
                         <div className="job-listing-details">
                           <div className="job-listing-description">
-                            <h3 className="job-listing-title "><a className="LinkDark" href="https://busy.az/vacancy/168561/tecrube-proqrami">Təcrübə proqramı</a></h3>
+                            <h3 className="job-listing-title "><a className="LinkDark" href="/vacancy/168561/tecrube-proqrami">Təcrübə proqramı</a></h3>
                             <div className="job-listing-footer">
                               <ul>
                                 <li>
-                                  <a className="GrayToBlue" href=" https://busy.az/company/prior-leasing "><i className="icon-material-outline-business"></i>Prior Leasing </a>
+                                  <a className="GrayToBlue" href=" /company/prior-leasing "><i className="icon-material-outline-business"></i>Prior Leasing </a>
                                 </li>
                                 <li><i className="icon-material-outline-access-time"></i>9 gün əvvəl</li>
                               </ul>
                             </div>
                           </div>
 
-                          <a className="list-apply-button ripple-effect" href="https://busy.az/vacancy/168561/tecrube-proqrami">Ətraflı</a>
+                          <a className="list-apply-button ripple-effect" href="/vacancy/168561/tecrube-proqrami">Ətraflı</a>
                         </div>
                       </div>
                     </div>
                     <div className=" mt-5 mb-35" style={{ width: '100%', textAlign: 'center', marginTop: '20px' }}>
-                      <a href="https://busy.az/dp/konullu-islemek-ucun-vakansiyalar" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
+                      <a href="/dp/konullu-islemek-ucun-vakansiyalar" className="button ripple-effect  button-sliding-icon margin-bottom-40" style={{ width: '260px', color: 'rgb(255, 255, 255)' }}>
                         Bütün könüllü vakansiyalar
                         <i className="icon-feather-check"></i>
                       </a>
@@ -900,7 +900,7 @@ export default function Home() {
             <br />
             tapmaqda kömək edirik.
           </p>
-          <a href="https://busy.az/31-headhunting-xidmeti-azerbaycanda">
+          <a href="/31-headhunting-xidmeti-azerbaycanda">
             MARAQLIDIR
           </a>
           <img src="/images/lupa.png" alt="" />
@@ -919,135 +919,135 @@ export default function Home() {
                 </span>
               </div>
               <div className="section-headline mt-0 mb-25">
-                <a href="https://busy.az/categories" className="headline-link">Bütün kateqoriyalar</a>
+                <a href="/categories" className="headline-link">Bütün kateqoriyalar</a>
               </div>
               <div className="categories-container" id="categories_view">
-                <a href="https://busy.az/category/musteri-xidmetleri" className="category-box ">
+                <a href="/category/musteri-xidmetleri" className="category-box ">
                   <div className="category-box-content">
                     <h3>Müştəri xidmətləri</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/muhasibat-idareetme-ucotu-maliyye" className="category-box ">
+                <a href="/category/muhasibat-idareetme-ucotu-maliyye" className="category-box ">
                   <div className="category-box-content">
                     <h3>Mühasibat, idarəetmə uçotu, maliyyə</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/tikinti-dasinmaz-emlak-memarliq" className="category-box ">
+                <a href="/category/tikinti-dasinmaz-emlak-memarliq" className="category-box ">
                   <div className="category-box-content">
                     <h3>Tikinti, daşınmaz əmlak, memarlıq</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/inzibati-administrativ-isler" className="category-box ">
+                <a href="/category/inzibati-administrativ-isler" className="category-box ">
                   <div className="category-box-content">
                     <h3>İnzibati (administrativ) işlər</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/yaradici-isler" className="category-box  hidden-categories ">
+                <a href="/category/yaradici-isler" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Yaradıcı işlər</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/layihelerin-idare-olunmasi-project-management" className="category-box  hidden-categories ">
+                <a href="/category/layihelerin-idare-olunmasi-project-management" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Layihələrin idarə olunması,  Project Management</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/avtomobil-biznesi" className="category-box  hidden-categories ">
+                <a href="/category/avtomobil-biznesi" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Avtomobil biznesi</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/bank-investisiyalar-maliyye" className="category-box  hidden-categories ">
+                <a href="/category/bank-investisiyalar-maliyye" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Bank, investisiyalar, maliyyə</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/ilkin-karyera-telebeler-ucun-isler" className="category-box  hidden-categories ">
+                <a href="/category/ilkin-karyera-telebeler-ucun-isler" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>İlkin karyera, tələbələr üçün işlər</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/ev-ucun-isciler" className="category-box  hidden-categories ">
+                <a href="/category/ev-ucun-isciler" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Ev üçün işçilər</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/human-resources-training" className="category-box  hidden-categories ">
+                <a href="/category/human-resources-training" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Human Resources, Training</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/it-internet-telekom" className="category-box  hidden-categories ">
+                <a href="/category/it-internet-telekom" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>İT, İnternet, Telekom</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/huquq" className="category-box  hidden-categories ">
+                <a href="/category/huquq" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Hüquq</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/isci-personal" className="category-box  hidden-categories ">
+                <a href="/category/isci-personal" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>İşçi personal</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/senaye-ve-kend-teserrufati" className="category-box  hidden-categories ">
+                <a href="/category/senaye-ve-kend-teserrufati" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Sənaye və kənd təsərrüfatı</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/marketing-reklam-pr" className="category-box  hidden-categories ">
+                <a href="/category/marketing-reklam-pr" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Marketing, Reklam, PR</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/sehiyye-eczaciliq" className="category-box  hidden-categories ">
+                <a href="/category/sehiyye-eczaciliq" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Səhiyyə, əczaçılıq</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/techizat" className="category-box  hidden-categories ">
+                <a href="/category/techizat" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Təchizat</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/satis" className="category-box  hidden-categories ">
+                <a href="/category/satis" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Satış</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/elm-tehsil" className="category-box  hidden-categories ">
+                <a href="/category/elm-tehsil" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Elm, Təhsil</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/tehlukesizlik" className="category-box  hidden-categories ">
+                <a href="/category/tehlukesizlik" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Təhlükəsizlik</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/tender" className="category-box  hidden-categories ">
+                <a href="/category/tender" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Tender</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/idman-fitness-gozellik-salonlari" className="category-box  hidden-categories ">
+                <a href="/category/idman-fitness-gozellik-salonlari" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>İdman, fitness, gözəllik salonları</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/turizm-otel-restoran" className="category-box  hidden-categories ">
+                <a href="/category/turizm-otel-restoran" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Turizm, otel, restoran</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/neqliyyat-logistika" className="category-box  hidden-categories ">
+                <a href="/category/neqliyyat-logistika" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Nəqliyyat, logistika</h3>
                   </div>
                 </a>
-                <a href="https://busy.az/category/menecment" className="category-box  hidden-categories ">
+                <a href="/category/menecment" className="category-box  hidden-categories ">
                   <div className="category-box-content">
                     <h3>Menecment</h3>
                   </div>
@@ -1106,13 +1106,13 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="tab-content bf_tb_content">
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 0 ? 'active' : ''}`} role="tabpanel" data-id="0">
-                  <img src="https://busy.az/storage/uploads/fOdvNuCPbKxedkKyMjUa40FQbeXjWxws8Uo4BwYd.jpeg" alt="" className="img-fluid" />
+                  <img src="/storage/uploads/fOdvNuCPbKxedkKyMjUa40FQbeXjWxws8Uo4BwYd.jpeg" alt="" className="img-fluid" />
                 </div>
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 1 ? 'active' : ''}`} role="tabpanel" data-id="1">
-                  <img src="https://busy.az/storage/uploads/WFjvUf7jYi0NNmJgOLLdRYvecLkmsVMmXOHpslIC.jpeg" alt="" className="img-fluid" />
+                  <img src="/storage/uploads/WFjvUf7jYi0NNmJgOLLdRYvecLkmsVMmXOHpslIC.jpeg" alt="" className="img-fluid" />
                 </div>
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 2 ? 'active' : ''}`} role="tabpanel" data-id="2">
-                  <img src="https://busy.az/storage/uploads/s9aMdL12elO9GZHSAYwT1VZZWLrY3HrO7j4cNMOZ.jpeg" alt="" className="img-fluid" />
+                  <img src="/storage/uploads/s9aMdL12elO9GZHSAYwT1VZZWLrY3HrO7j4cNMOZ.jpeg" alt="" className="img-fluid" />
                 </div>
               </div>
             </div>
@@ -1199,7 +1199,7 @@ export default function Home() {
                       <li>Dedlayn keçəndən sonra vakansiyanı silmək</li>
                     </ul>
                   </div>
-                  <a href="https://busy.az/order/4" className=" ordinary-price-btn  button full-width margin-top-20">Sifariş et</a>
+                  <a href="/order/4" className=" ordinary-price-btn  button full-width margin-top-20">Sifariş et</a>
                 </div>
                 {/* Plan */}
                 <div className="pricing-plan ">
@@ -1219,7 +1219,7 @@ export default function Home() {
                       <li>Anonim rəyləri silmək</li>
                     </ul>
                   </div>
-                  <a href="https://busy.az/order/5" className=" ordinary-price-btn  button full-width margin-top-20">Sifariş et</a>
+                  <a href="/order/5" className=" ordinary-price-btn  button full-width margin-top-20">Sifariş et</a>
                 </div>
                 {/* Plan */}
                 <div className="pricing-plan  recommended ">
@@ -1242,7 +1242,7 @@ export default function Home() {
                       <li>Xüsusi sosial media kontenti</li>
                     </ul>
                   </div>
-                  <a href="https://busy.az/order/6" className=" recommended-price-btn  button full-width margin-top-20">Sifariş et</a>
+                  <a href="/order/6" className=" recommended-price-btn  button full-width margin-top-20">Sifariş et</a>
                 </div>
               </div>
             </div>

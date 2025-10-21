@@ -27,7 +27,7 @@ const allVacancies: Vacancy[] = Array.from({ length: 30 }, (_, i) => ({
     company: `Şirkət ${i + 1}`,
     location: 'Bakı',
     time: `${(i % 5) + 1} gün əvvəl`,
-    logo: 'https://busy.az/site/images/company-logo-05.png',
+    logo: '/site/images/company-logo-05.png',
     isPremium: i % 4 === 0,
     href: '#',
 }));
@@ -311,8 +311,8 @@ export default function Vacancies() {
               <h1>Vakansiyalar | İş elanları</h1>
               <nav id="breadcrumbs" className="dark d-none">
                 <ul>
-                  <li><a href="https://busy.az">Baş səhifə</a></li>
-                  <li><a href="https://busy.az/vacancies">Vakansiyalar | İş elanları</a></li>
+                  <li><a href="">Baş səhifə</a></li>
+                  <li><a href="/vacancies">Vakansiyalar | İş elanları</a></li>
                 </ul>
               </nav>
             </div>
@@ -395,7 +395,7 @@ export default function Vacancies() {
             </div>
             <div className="row">
               <div className="col-12">
-                <form action="https://busy.az/search" method="GET">
+                <form action="/search" method="GET">
                   <div className="row">
                     <div className="col-md-12">
                       <div className="intro-banner-search-form">
@@ -420,7 +420,8 @@ export default function Vacancies() {
                   Vakansiyalara müraciət edərkən tələb olunan təhsil və sənədlər vakansiyanın özünə, şirkətin xüsusiyyətlərinə və sektorun tələblərinə asılı olaraq dəyişə bilər. Ümumiyyətlə, aşağıdakı sənədlər tələb oluna bilər:&nbsp;
                   Diplom və sertifikatlar: Təhsil dərəcənizi və ixtisaslaşdığınız sahəni sübut edən sənədlər.&nbsp;
                   Referansla bağlı sənədlər: Əvvəlki iş yerlərindən aldığınız referans və təcrübənizi sübut edən digər sənədlər.&nbsp;
-                  CV: Təhsil, uğurlarınız və iş təcrüb&... </div>
+                  CV: Təhsil, uğurlarınız və iş təcrübənizi özündə əks etdirən sənəd.&nbsp;
+                  Sahəyə uyğun sertifikatlar: Məsələn, 1C operator vakansiyasına müraciət etmisinizsə bu sahəyə aid sertifikat tələb oluna bilər.</div>
                 <div className="read_full"><span id="read_more">Ətraflı</span></div>
                 <div id="content_all" className="content_all" style={{ display: 'none' }}>
                   <p>Saytımızda müxtəlif sahələrə aid vakansiyalar mövcuddur. Hər bir insanın bacarıq və təcrübəsindən asılı olaraq işləyə biləcəyi sahələr fərqlidir. Bu zaman namizədlər özlərinə uyğun iş elanlarına müraciət etməlidirlər. Təhsil, iş təcrübəsi və bacarıqlar namizədlərin iş tapması üçün ən vacib məqamlar sırasındadır. Namizəd yaşadığı yerdən asılı olaraq saytımızda Bakı, Gəncə kimi iş elanlarını axtarıb ona uyğun olan iş vakansiyalarını sıralaya bilərlər. Bundan əlavə olaraq saytımızda işəgötürənlər iş elanları paylaşmaqla özlərinə uyğun işçiləri asanlıqla tapa bilərlər.&nbsp;</p>

@@ -2654,7 +2654,7 @@ body #backtotop a {
 }
 
 #backtotop a:after {
-	content: "юд▒";
+	content: "\e92f";
 	font-family: Feather-Icons;
 	position: relative;
 	display: block;

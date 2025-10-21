@@ -1,7 +1,25 @@
 "use client";
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header = () => {
+  const { isLoggedIn, logout } = useAuth();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    logout();
+    router.push('/');
+  };
+
+  const toggleDropdown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <>
       <header id="header-container" className="fullwidth" style={{ position: 'fixed' }}>
@@ -9,7 +27,7 @@ const Header = () => {
               <div className="container">
                   <div className="left-side">
                       <div id="logo">
-                          <a href="/"><img src="/storage/uploads/OgQWs1lHRAONazsERFcm7OY4I1pksVYsEaQxFcIl.webp" alt="Busy.az website logo" /></a>
+                          <a href="/"><img src="/images/logo.webp" alt="Busy.az website logo" /></a>
                       </div>
                       <nav id="navigation">
                           <ul id="responsive">
@@ -63,11 +81,40 @@ const Header = () => {
                           </ul>
                       </nav>
                       <div className="header-widget">
+                        {isLoggedIn ? (
+                          <div className={`header-notifications user-menu ${isDropdownOpen ? 'active' : ''}`}>
+                            <div className="header-notifications-trigger">
+                                <a href="#" onClick={toggleDropdown}>
+                                    <div className="user-avatar status-online">
+                                        <img src="/images/user-avatar-placeholder.png" alt="" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="header-notifications-dropdown">
+                                <div className="user-status">
+                                    <div className="user-details">
+                                        <div className="user-avatar status-online"><img src="/images/user-avatar-placeholder.png" alt="" /></div>
+                                        <div className="user-name">
+                                             Busy Admin <span>Admin</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul className="user-menu-small-nav">
+                                    <li>
+                                        <Link href="/(admin)/dashboard"><i className="icon-material-outline-dashboard"></i>İdarə paneli</Link>
+                                    </li>
+                                    <li><Link href="/dashboard/settings"><i className="icon-material-outline-settings"></i>Ayarlar</Link></li>
+                                    <li><a href="#" onClick={handleLogout}><i className="icon-material-outline-power-settings-new"></i> Çıxış</a></li>
+                                </ul>
+                            </div>
+                          </div>
+                        ) : (
                           <div className="header-notifications-trigger">
                               <Link href="/login">
-                                  <div className="user-avatar status-online"><img src="/site/images/user-avatar-placeholder.png" alt="" /></div>
+                                  <div className="user-avatar status-online"><img src="/images/user-avatar-placeholder.png" alt="" /></div>
                               </Link>
                           </div>
+                        )}
                       </div>
                       <span className="mmenu-trigger">
                           <button className="hamburger hamburger--collapse" type="button">
