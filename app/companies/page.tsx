@@ -1,12 +1,25 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 
-const CompaniesPage = () => {
-  const alphabet = "A,B,C,Ç,D,E,Ə,F,G,H,X,İ,J,K,Q,L,M,N,O,Ö,P,R,S,Ş,T,U,Ü,V,Y,Z,1,2,3,4,5,6,7,8,9".split(',');
+const alphabet = "A,B,C,Ç,D,E,Ə,F,G,H,X,İ,J,K,Q,L,M,N,O,Ö,P,R,S,Ş,T,U,Ü,V,Y,Z,1,2,3,4,5,6,7,8,9".split(',');
+
+const allCompanies = [
+  { name: 'A - Group Insurance Company / A-Qroup Sığorta Şirkəti', logo: '/images/company-logo-05.png', link: '/company/a-group-insurance-company-a-qroup-sigorta-sirketi/' },
+  { name: 'A Agro', logo: '/storage/uploads/image/AAgro.jpg', link: '/company/a-agro/' },
+  { name: 'A and S Union Afezko', logo: '/images/company-logo-05.png', link: '/company/a-and-s-union-afezko/' },
+  { name: 'Bravo Supermarket', logo: '/images/company-logo-05.png', link: '#' },
+  { name: 'Bank of Baku', logo: '/images/company-logo-05.png', link: '#' },
+  { name: 'Caspian Development Group', logo: '/images/company-logo-05.png', link: '#' },
+  { name: 'Çudo Peçka', logo: '/images/company-logo-05.png', link: '#' },
+  { name: 'Delta Group', logo: '/images/company-logo-05.png', link: '#' },
+  { name: 'Express Bank', logo: '/images/company-logo-05.png', link: '#' },
+];
+
+function CompaniesContent() {
   const searchParams = useSearchParams();
   const indexParam = searchParams.get('index') || '0';
   const currentIndex = parseInt(indexParam, 10);
@@ -16,22 +29,8 @@ const CompaniesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  // Mock data
-  const allCompanies = [
-    { name: 'A - Group Insurance Company / A-Qroup Sığorta Şirkəti', logo: '/images/company-logo-05.png', link: '/company/a-group-insurance-company-a-qroup-sigorta-sirketi/' },
-    { name: 'A Agro', logo: '/storage/uploads/image/AAgro.jpg', link: '/company/a-agro/' },
-    { name: 'A and S Union Afezko', logo: '/images/company-logo-05.png', link: '/company/a-and-s-union-afezko/' },
-    { name: 'Bravo Supermarket', logo: '/images/company-logo-05.png', link: '#' },
-    { name: 'Bank of Baku', logo: '/images/company-logo-05.png', link: '#' },
-    { name: 'Caspian Development Group', logo: '/images/company-logo-05.png', link: '#' },
-    { name: 'Çudo Peçka', logo: '/images/company-logo-05.png', link: '#' },
-    { name: 'Delta Group', logo: '/images/company-logo-05.png', link: '#' },
-    { name: 'Express Bank', logo: '/images/company-logo-05.png', link: '#' },
-  ];
-
   useEffect(() => {
-    // Filter companies based on search term and alphabet index
-    const filtered = allCompanies.filter(company => 
+    const filtered = allCompanies.filter(company =>
       company.name.toLowerCase().startsWith(alphabet[currentIndex].toLowerCase()) &&
       company.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -59,11 +58,11 @@ const CompaniesPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-12">
-            <input 
-              type="text" 
-              className="form-control" 
-              placeholder="Şirkətin adını yazmağa başla" 
-              id="company_autocomplete" 
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Şirkətin adını yazmağa başla"
+              id="company_autocomplete"
               autoComplete="off"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -131,6 +130,14 @@ const CompaniesPage = () => {
       <div className="margin-top-70"></div>
     </>
   );
+}
+
+const CompaniesPage = () => {
+    return (
+        <Suspense fallback={<div>Yüklənir...</div>}>
+            <CompaniesContent />
+        </Suspense>
+    );
 };
 
 export default CompaniesPage;

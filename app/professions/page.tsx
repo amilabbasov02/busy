@@ -1,11 +1,20 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-const ProfessionsPage = () => {
-  const alphabet = "A,B,C,Ç,D,E,Ə,F,G,H,X,İ,J,K,Q,L,M,N,O,Ö,P,R,S,Ş,T,U,Ü,V,Y,Z,1,2,3,4,5,6,7,8,9".split(',');
+const alphabet = "A,B,C,Ç,D,E,Ə,F,G,H,X,İ,J,K,Q,L,M,N,O,Ö,P,R,S,Ş,T,U,Ü,V,Y,Z,1,2,3,4,5,6,7,8,9".split(',');
+
+const allProfessions = [
+  { name: 'ACCA instructor', slug: 'acca-instructor' },
+  { name: 'ACCA müəllimi', slug: 'acca-muellimi' },
+  { name: 'Barista', slug: 'barista' },
+  { name: 'Backend Developer', slug: 'backend-developer' },
+  { name: 'C# Developer', slug: 'c-sharp-developer' },
+];
+
+function ProfessionsContent() {
   const searchParams = useSearchParams();
   const indexParam = searchParams.get('index') || '0';
   const currentIndex = parseInt(indexParam, 10);
@@ -15,18 +24,8 @@ const ProfessionsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  // Mock data
-  const allProfessions = [
-    { name: 'ACCA instructor', slug: 'acca-instructor' },
-    { name: 'ACCA müəllimi', slug: 'acca-muellimi' },
-    { name: 'Barista', slug: 'barista' },
-    { name: 'Backend Developer', slug: 'backend-developer' },
-    { name: 'C# Developer', slug: 'c-sharp-developer' },
-  ];
-
   useEffect(() => {
-    // Filter professions based on search term and alphabet index
-    const filtered = allProfessions.filter(profession => 
+    const filtered = allProfessions.filter(profession =>
       profession.name.toLowerCase().startsWith(alphabet[currentIndex].toLowerCase()) &&
       profession.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -54,11 +53,11 @@ const ProfessionsPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-12">
-            <input 
-              type="text" 
-              className="form-control" 
-              placeholder="peşənin/ixtisasın adını yazmağa başla" 
-              id="company_autocomplete" 
+            <input
+              type="text"
+              className="form-control"
+              placeholder="peşənin/ixtisasın adını yazmağa başla"
+              id="company_autocomplete"
               autoComplete="off"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -129,6 +128,14 @@ const ProfessionsPage = () => {
       </div>
       <div className="margin-top-70"></div>
     </>
+  );
+}
+
+const ProfessionsPage = () => {
+  return (
+    <Suspense fallback={<div>Yüklənir...</div>}>
+      <ProfessionsContent />
+    </Suspense>
   );
 };
 
