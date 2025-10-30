@@ -1,0 +1,149 @@
+/* General Page Styles */
+.pageWrapper {
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    min-height: 100vh;
+}
+
+.main {
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Search Section */
+.searchSection {
+    margin-bottom: 40px;
+}
+
+.searchBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.searchBox input {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.searchBox button {
+    padding: 15px 30px;
+    border: none;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Categories Section */
+.categoriesSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.categoryTag {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.categoryTag:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Jobseekers Grid */
+.jobseekersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.profileCard {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profileCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.profilePhoto {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileName {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.profilePosition {
+    color: #6c757d;
+    margin: 0;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.skillTag {
+    background-color: #eef2f7;
+    color: #4a5568;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .searchBox {
+        grid-template-columns: 1fr;
+    }
+}

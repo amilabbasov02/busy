@@ -1,13 +1,7 @@
-"use client";
-import Script from "next/script";
+import type { NextPage } from "next";
 import styles from "./page.module.css";
-import { useParams } from "next/navigation";
-import Link from "next/link";
 
-const CompanyDetailsPage = () => {
-  const params = useParams();
-  const slug = params.slug;
-
+const CompanyDetails: NextPage = () => {
   return (
     <div className={styles.companyDetails}>
       <div id="wrapper" style={{ overflowY: "hidden" }}>
@@ -28,7 +22,7 @@ const CompanyDetailsPage = () => {
                     </div>
                     <div className="header-details">
                       <h1>
-                        {slug} <span></span>
+                        A Agro <span></span>
                       </h1>
                       <ul></ul>
                     </div>
@@ -38,12 +32,12 @@ const CompanyDetailsPage = () => {
                     <nav id="breadcrumbs" className="white" style={{ display: "none" }}>
                       <ul>
                         <li>
-                          <Link href="/">Baş səhifə</Link>
+                          <a href="/">Baş səhifə</a>
                         </li>
                         <li>
-                          <Link href="/companies">Şirkətlər</Link>
+                          <a href="/companies">Şirkətlər</a>
                         </li>
-                        <li>{slug}</li>
+                        <li>A Agro</li>
                       </ul>
                     </nav>
                   </div>
@@ -66,15 +60,15 @@ const CompanyDetailsPage = () => {
             {/* Content */}
             <div className="col-xl-8 col-lg-8 content-right-offset">
               <nav className="nav nav-pills nav-justified">
-                <Link className="button ripple-effect" href={`/company/${slug}`}>
+                <a className="button ripple-effect" href="/company/a-agro">
                   Şirkət haqqında
-                </Link>
-                <Link
+                </a>
+                <a
                   className="button ripple-effect-dark gray"
-                  href={`/company/${slug}/vacancies`}
+                  href="/company/a-agro/vacancies"
                 >
                   Vakansiyalar
-                </Link>
+                </a>
               </nav>
 
               <br />
@@ -193,7 +187,7 @@ const CompanyDetailsPage = () => {
                     <input
                       id="copy-url"
                       type="text"
-                      defaultValue=""
+                      value=""
                       className="with-border"
                     />
                     <button
@@ -451,10 +445,10 @@ const CompanyDetailsPage = () => {
           </div>
         </div>
 
-        <Script src="https://busy.az/js/app.js?v=1" />
+        <script src="https://busy.az/js/app.js?v=1"></script>
       </div>
     </div>
   );
 };
 
-export default CompanyDetailsPage;
+export default CompanyDetails;

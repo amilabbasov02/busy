@@ -1950,3 +1950,67 @@ section.blank p {
 .select2-results__options {
     max-height: 250px;
 }
+.text-center-h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.single-page-section h3 {
+    font-size: 1.75rem;
+}
+.single-page-section h3 {
+    margin-top: 16px;
+}
+.footer-links ul li:last-child a {
+    z-index: 0;
+}
+.react-tel-input .form-control {
+    position: relative !important;
+    font-size: 14px !important;
+    letter-spacing: .01rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 48px !important;
+    margin-left: 0 !important;
+    background: #FFFFFF !important;
+    border: 1px solid #CACACA !important;
+    border-radius: 5px !important;
+    line-height: 25px !important;
+    height: 48px !important;
+    width: 400px !important;
+    outline: none !important;
+}
+
+.react-tel-input .flag-dropdown {
+    background-color: #ffffff !important;
+    border: 1px solid #CACACA !important;
+    border-right: none !important;
+    border-radius: 5px 0 0 5px !important;
+    height: 48px !important;
+}
+
+.react-tel-input .country-list {
+    z-index: 9999 !important;
+}
+.footer-links h4 {
+    color: #fff;
+}
+.react-tel-input .flag-dropdown.open {
+    z-index: 20;
+    background: #fff;
+    border-radius: 3px 0 0 0;
+}
+
+.react-tel-input .country-list {
+    color: #000;
+    z-index: 9999 !important;
+}
