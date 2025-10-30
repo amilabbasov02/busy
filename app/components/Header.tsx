@@ -27,7 +27,7 @@ const Header = () => {
               <div className="container">
                   <div className="left-side">
                       <div id="logo">
-                          <a href="/"><img src="/images/logo.webp" alt="Busy.az website logo" /></a>
+                          <Link href="/"><img src="/images/logo.webp" alt="Busy.az website logo" /></Link>
                       </div>
                       <nav id="navigation">
                           <ul id="responsive">
@@ -58,7 +58,7 @@ const Header = () => {
                                    <Link href="/pricing">Qiymətlər</Link>
                                  </li>
                                  <li>
-                                   <Link href="/31-headhunting-xidmeti-azerbaycanda">Headhunting</Link>
+                                   <Link href="/headhunting">Headhunting</Link>
                                  </li>
                                  <li>
                                    <Link href="/jobseekers">CV-lər</Link>
@@ -66,7 +66,7 @@ const Header = () => {
                               </ul>
                           </li>
                           <li>
-                              <Link href="/3-haqqimizda" data-dropdown-id="header-dropdown-51">Haqqımızda</Link>
+                              <Link href="/about" data-dropdown-id="header-dropdown-51">Haqqımızda</Link>
                           </li>
                           </ul>
                       </nav>

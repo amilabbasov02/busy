@@ -19000,3 +19000,38 @@ a.headline-link:after {
 		margin-top: -25px;
 	}
 }
+
+.grid-layout .job-listing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px 30px 0;
+    width: calc(100% - 30px);
+    flex-direction: column;
+}
+
+.job-listing-title {
+    text-align: left;
+}
+
+.header-under-name,
+p {
+    text-align: left;
+}
+
+.item-description.w-68 p {
+    text-align: left;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.boxed-list-item .item-description {
+    margin-top: 15px;
+    width: 70%;
+}
+
+.text-capitalize {
+    text-align: left;
+}

@@ -333,7 +333,7 @@ export default function Vacancies() {
                     <p>Yüklənir...</p>
                 ) : (
                     vacancies.map(vacancy => (
-                        <a key={vacancy.id} href={vacancy.href} className="job-listing with-apply-button">
+                        <Link key={vacancy.id} href={`/vacancies/${vacancy.id}`} className="job-listing with-apply-button">
                             <div className="job-listing-details">
                                 <div className="job-listing-company-logo">
                                     <img className="lozad" data-src={vacancy.logo} alt={`${vacancy.company} logo`} src={vacancy.logo} data-loaded="true" />
@@ -357,7 +357,7 @@ export default function Vacancies() {
                                     <span className="list-apply-button ripple-effect">Ətraflı</span>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))
                 )}
             </div>

@@ -1062,9 +1062,9 @@ export default function Home() {
         <div className="container">
           <div className="row align-items-center benefit_tabs">
             <div className="col-lg-6">
-              <div className="section-title me-5">
+              <div className="section-title me-5 text-start">
                 <h3 className="title">3 addımdaca həyatını asanlaşdır</h3>
-                <p className="text-muted">Yaxşı iş tapmaq üçün elə də çox şey lazım deyil. Pulsuz-parasız, rahat şəkildə arzuladığınız işi tapın.</p>
+                <p className="text-muted text-start">Yaxşı iş tapmaq üçün elə də çox şey lazım deyil. Pulsuz-parasız, rahat şəkildə arzuladığınız işi tapın.</p>
                 <div className="process-menu nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <a className={`nav-link clicked_tab_btn ${activeHowItTab === 0 ? 'active' : ''}`} data-id="0" href="javascript:void(0);" role="tab">
                     <div className="d-flex">
@@ -1073,7 +1073,7 @@ export default function Home() {
                       </div>
                       <div className="flex-grow-1 text-start ms-3 start_text_item">
                         <h5 className="fs-18">Qeydiyyatdan keç</h5>
-                        <p className="text-muted mb-0">Sadəcə e-mailə gələn aktivləşdirmə keçidinə basmaq bəs edir.</p>
+                        <p className="text-muted mb-0 text-start">Sadəcə e-mailə gələn aktivləşdirmə keçidinə basmaq bəs edir.</p>
                       </div>
                     </div>
                   </a>
@@ -1084,7 +1084,7 @@ export default function Home() {
                       </div>
                       <div className="flex-grow-1 text-start ms-3 start_text_item">
                         <h5 className="fs-18">İstədiyin vəzifələri təyin et</h5>
-                        <p className="text-muted mb-0">Hansı ixtisaslarda iş olanda sizə bildiriş gəlsin? Bax, həmin arzuladığın peşələri seç.</p>
+                        <p className="text-muted mb-0 text-start">Hansı ixtisaslarda iş olanda sizə bildiriş gəlsin? Bax, həmin arzuladığın peşələri seç.</p>
                       </div>
                     </div>
                   </a>
@@ -1095,7 +1095,7 @@ export default function Home() {
                       </div>
                       <div className="flex-grow-1 text-start ms-3 start_text_item">
                         <h5 className="fs-18">Müraciət et</h5>
-                        <p className="text-muted mb-0">Telefonuna gələcək bildirişlərə klik et. MÜraciət etdiyin iş xeyirli olsun.</p>
+                        <p className="text-muted mb-0 text-start">Telefonuna gələcək bildirişlərə klik et. MÜraciət etdiyin iş xeyirli olsun.</p>
                       </div>
                     </div>
                   </a>
@@ -1106,13 +1106,13 @@ export default function Home() {
             <div className="col-lg-6">
               <div className="tab-content bf_tb_content">
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 0 ? 'active' : ''}`} role="tabpanel" data-id="0">
-                  <img src="/storage/uploads/fOdvNuCPbKxedkKyMjUa40FQbeXjWxws8Uo4BwYd.jpeg" alt="" className="img-fluid" />
+                  <img src="/images/block-1.jpeg" alt="" className="img-fluid" />
                 </div>
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 1 ? 'active' : ''}`} role="tabpanel" data-id="1">
-                  <img src="/storage/uploads/WFjvUf7jYi0NNmJgOLLdRYvecLkmsVMmXOHpslIC.jpeg" alt="" className="img-fluid" />
+                  <img src="/images/block-2.jpeg" alt="" className="img-fluid" />
                 </div>
                 <div className={`tab-pane bf_tb_items ${activeHowItTab === 2 ? 'active' : ''}`} role="tabpanel" data-id="2">
-                  <img src="/storage/uploads/s9aMdL12elO9GZHSAYwT1VZZWLrY3HrO7j4cNMOZ.jpeg" alt="" className="img-fluid" />
+                  <img src="/images/block-3.jpeg" alt="" className="img-fluid" />
                 </div>
               </div>
             </div>
@@ -1134,7 +1134,7 @@ export default function Home() {
                     <span className="faq_icn"></span>
                   </div>
                   <div className="collapse_content">
-                    <p>Əgər siz ödənişi etmisinizsə və balansınızda 1 AZN də olsa məbləğ varsa, istənilən zaman sizin şirkətə aid keçmiş vakansiyanı silə bilərsiniz.</p>
+                    <p className="text-start">Əgər siz ödənişi etmisinizsə və balansınızda 1 AZN də olsa məbləğ varsa, istənilən zaman sizin şirkətə aid keçmiş vakansiyanı silə bilərsiniz.</p>
                   </div>
                 </div>
                 <div className="collapse_row">
@@ -1143,7 +1143,7 @@ export default function Home() {
                     <span className="faq_icn"></span>
                   </div>
                   <div className="collapse_content">
-                    <p>Xeyr.<br />
+                    <p className="text-start">Xeyr.<br />
                       Yalnız hansı sahələri doldurmaq üçün məlumatınız varsa, onları doldurun.<br />
                       Lakin iş elanında nə qədər çox sahəni ətraflı şəkildə doldursanız, sizin iş elanınız o qədər çox görünə bilər. Çalışın maaş, iş tipi, təhsil səviyyəsi, yaş və s. ilə bağlı bütün detalları qeyd edəsiniz ki, həm iş axtaranlara, həm də gələcəkdə sizə faydalı olsun.</p>
                   </div>
@@ -1154,7 +1154,7 @@ export default function Home() {
                     <span className="faq_icn"></span>
                   </div>
                   <div className="collapse_content">
-                    <p>Ən yaxşısı dərhal bizə zəng etməkdir. +994553103300 nömrəsinə zəng etməklə yaxud support@busy.az ünvanına yazmaqla tez bir zamanda suallarınıza cavab tapacaqsınız.</p>
+                    <p className="text-start">Ən yaxşısı dərhal bizə zəng etməkdir. +994553103300 nömrəsinə zəng etməklə yaxud support@example.com ünvanına yazmaqla tez bir zamanda suallarınıza cavab tapacaqsınız.</p>
                   </div>
                 </div>
 
@@ -1164,8 +1164,8 @@ export default function Home() {
                     <span className="faq_icn"></span>
                   </div>
                   <div className="collapse_content">
-                    <p>Xidmət təminatçısı kimi busy.az saytının özünün razılığı olmadan edilmiş ödənişlər geri qaytarılmır. Vəsait ödəniləndən sonra İstifadəçinin balansına əlavə edilir. İstifadəçi edilmiş ödənişin həcminə uyğun xidməti sonradan və ya digər xidmətlər üçün istifadə edə bilər.</p>
-                    <p>Ona görə də, ödəniş etməzdən əvvəl diqqətli olmağı, yalnız xidmətdən istifadəyə əmin olandan sonra ödənişi etmək lazımdır.&nbsp; Əgər digər suallarınız varsa, bizimlə əlaqə saxlaya bilərsiniz.</p>
+                    <p className="text-start">Xidmət təminatçısı kimi saytımızın özünün razılığı olmadan edilmiş ödənişlər geri qaytarılmır. Vəsait ödəniləndən sonra İstifadəçinin balansına əlavə edilir. İstifadəçi edilmiş ödənişin həcminə uyğun xidməti sonradan və ya digər xidmətlər üçün istifadə edə bilər.</p>
+                    <p className="text-start">Ona görə də, ödəniş etməzdən əvvəl diqqətli olmağı, yalnız xidmətdən istifadəyə əmin olandan sonra ödənişi etmək lazımdır.&nbsp; Əgər digər suallarınız varsa, bizimlə əlaqə saxlaya bilərsiniz.</p>
                   </div>
                 </div>
               </div>

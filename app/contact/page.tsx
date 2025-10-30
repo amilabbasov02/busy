@@ -28,7 +28,7 @@ const ContactPage = () => {
                   <li className="contact-address-headline">Ofisimiz</li>
                   <li>Ünvan burada olacaq</li>
                   <li>Telefon: (123) 456-7890</li>
-                  <li><a href="mailto:info@busy.az">info@busy.az</a></li>
+                  <li><a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
               </div>
               <div id="single-job-map-container">

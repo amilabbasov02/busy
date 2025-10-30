@@ -1,0 +1,34 @@
+.single-page-section, .sidebar-container, .header-details h1, p {
+    text-align: left;
+}
+
+.job-overview-inner ul li {
+    text-align: left;
+}
+
+.job-overview .job-overview-inner ul li span {
+    margin:0 5px 5px 0 !important;
+    display: inline-block !important;
+}
+
+.similarjobs .owl-nav {
+    display: block !important;
+}
+
+.similarjobs .owl-prev, .similarjobs .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0 !important;
+    border-radius: 50%;
+}
+
+.similarjobs .owl-prev {
+    left: -20px;
+}
+
+.similarjobs .owl-next {
+    right: -20px;
+}

@@ -69,7 +69,7 @@ const pricingData = [
             'Çox şirkəti bir hesabdan idarə etmək',
             'HR-branding üçün məqalələr'
         ],
-        link: 'mailto:support@busy.az'
+        link: 'mailto:support@example.com'
     }
 ];
 

@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
@@ -15,9 +14,9 @@ interface Vacancy {
 }
 
 const allVacancies: Vacancy[] = [
-    { id: 43342, title: 'ACCA üzrə müəllim', company: 'Vision Academy', logo: '/storage/companies/1690982428picture1.png', date: '2370 gün əvvəl', link: 'https://busy.az/vacancy/43342/acca-uzre-muellim', professionSlug: 'acca-instructor' },
-    { id: 34080, title: 'ACCA Tutor', company: 'Imza Group', logo: '/storage/uploads/image/1974titled.png', date: '2688 gün əvvəl', link: 'https://busy.az/vacancy/34080/acca-tutor', professionSlug: 'acca-instructor' },
-    { id: 31809, title: 'ACCA Instructor (F2, F3, F7, F9)', company: 'BRIDGE Academy', logo: '/storage/uploads/image/1800titled.png', date: '2784 gün əvvəl', link: 'https://busy.az/vacancy/31809/acca-instructor-f2-f3-f7-f9', professionSlug: 'acca-instructor' },
+    { id: 43342, title: 'ACCA üzrə müəllim', company: 'Vision Academy', logo: '/storage/companies/1690982428picture1.png', date: '2370 gün əvvəl', link: '/vacancies/acca-uzre-muellim', professionSlug: 'acca-instructor' },
+    { id: 34080, title: 'ACCA Tutor', company: 'Imza Group', logo: '/storage/uploads/image/1974titled.png', date: '2688 gün əvvəl', link: '/vacancies/acca-tutor', professionSlug: 'acca-instructor' },
+    { id: 31809, title: 'ACCA Instructor (F2, F3, F7, F9)', company: 'BRIDGE Academy', logo: '/storage/uploads/image/1800titled.png', date: '2784 gün əvvəl', link: '/vacancies/acca-instructor-f2-f3-f7-f9', professionSlug: 'acca-instructor' },
     { id: 1, title: 'Backend Developer', company: 'Tech Solutions', logo: '/images/company-logo-placeholder.png', date: '1 gün əvvəl', link: '#', professionSlug: 'backend-developer' },
     { id: 2, title: 'Senior Backend Developer', company: 'Innovate Co', logo: '/images/company-logo-placeholder.png', date: '2 gün əvvəl', link: '#', professionSlug: 'backend-developer' },
 ];
@@ -44,10 +43,6 @@ const ProfessionPage = () => {
 
     return (
         <>
-            <Head>
-                <title>{professionName} vakansiyası üçün iş elanları</title>
-            </Head>
-
             <div id="titlebar" className="gradient margin-bottom-45">
                 <div className="container">
                     <div className="row">
@@ -63,7 +58,7 @@ const ProfessionPage = () => {
                     <div className="col-xl-12">
                         <div className="listings-container compact-list-layout margin-top-35 margin-bottom-35">
                             {vacancies.map(job => (
-                                <a href={job.link} target="_blank" className="job-listing with-apply-button" id={`vacancy-${job.id}`} key={job.id}>
+                                <Link href={job.link} className="job-listing with-apply-button" id={`vacancy-${job.id}`} key={job.id}>
                                     <div className="job-listing-details">
                                         <div className="job-listing-company-logo">
                                             <img className="lozad" data-src={job.logo} alt="" src={job.logo} data-loaded="true" />
@@ -78,7 +73,7 @@ const ProfessionPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             ))}
                         </div>
                         

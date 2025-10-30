@@ -49,7 +49,7 @@ export default function Blog() {
             <Head>
                 <title>Bloq</title>
             </Head>
-            <div id="wrapper" style={{ overflowY: 'hidden', paddingTop: '82px' }}>
+            <div id="wrapper" style={{ overflowY: 'hidden' }}>
                 <div className="clearfix"></div>
                 <div id="titlebar" className="white margin-bottom-30">
                     <div className="container">
@@ -66,7 +66,7 @@ export default function Blog() {
                     </div>
                 </div>
                 <div className="grid_content" style={{ position: 'relative', height: 'auto' }}>
-                    <div id="post-area" className="grid">
+                    <div id="post-area" className="grid d-flex flex-wrap">
                         {loading ? (
                             <p>Yüklənir...</p>
                         ) : (
@@ -91,7 +91,7 @@ export default function Blog() {
                     <div className="clearfix"></div>
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="pagination-container margin-top-60 margin-bottom-60">
+                            <div className="pagination-container margin-top-60 margin-bottom-60 d-flex justify-content-center">
                                 <nav className="pagination">
                                     <ul>
                                         {currentPage > 1 && (

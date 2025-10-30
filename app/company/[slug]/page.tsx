@@ -1,16 +1,29 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata, ResolvingMetadata } from 'next'
 
-const CompanyPage = ({ params }: { params: { slug: string } }) => {
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+
+  return {
+    title: `Şirkət Səhifəsi: ${slug}`,
+  }
+}
+
+const CompanyPage = async ({ params }: Props) => {
   const { slug } = params;
 
   return (
     <>
-      <Head>
-        <title>Şirkət Səhifəsi: {slug}</title>
-      </Head>
-
       <div className="single-page-header" style={{ backgroundImage: `url(/images/single-company.jpg)` }}>
         <div className="container">
           <div className="row">

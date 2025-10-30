@@ -18,15 +18,15 @@ const CompaniesPage = () => {
 
   // Mock data
   const allCompanies = [
-    { name: 'A - Group Insurance Company / A-Qroup Sığorta Şirkəti', logo: 'https://busy.az/site/images/company-logo-05.png', link: '/company/a-group-insurance-company-a-qroup-sigorta-sirketi/' },
+    { name: 'A - Group Insurance Company / A-Qroup Sığorta Şirkəti', logo: '/images/company-logo-05.png', link: '/company/a-group-insurance-company-a-qroup-sigorta-sirketi/' },
     { name: 'A Agro', logo: '/storage/uploads/image/AAgro.jpg', link: '/company/a-agro/' },
-    { name: 'A and S Union Afezko', logo: 'https://busy.az/site/images/company-logo-05.png', link: '/company/a-and-s-union-afezko/' },
-    { name: 'Bravo Supermarket', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
-    { name: 'Bank of Baku', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
-    { name: 'Caspian Development Group', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
-    { name: 'Çudo Peçka', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
-    { name: 'Delta Group', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
-    { name: 'Express Bank', logo: 'https://busy.az/site/images/company-logo-05.png', link: '#' },
+    { name: 'A and S Union Afezko', logo: '/images/company-logo-05.png', link: '/company/a-and-s-union-afezko/' },
+    { name: 'Bravo Supermarket', logo: '/images/company-logo-05.png', link: '#' },
+    { name: 'Bank of Baku', logo: '/images/company-logo-05.png', link: '#' },
+    { name: 'Caspian Development Group', logo: '/images/company-logo-05.png', link: '#' },
+    { name: 'Çudo Peçka', logo: '/images/company-logo-05.png', link: '#' },
+    { name: 'Delta Group', logo: '/images/company-logo-05.png', link: '#' },
+    { name: 'Express Bank', logo: '/images/company-logo-05.png', link: '#' },
   ];
 
   useEffect(() => {

@@ -40,3 +40,8 @@ a {
     color-scheme: dark;
   }
 }
+
+.text-start {
+  text-align: left !important;
+}
+
