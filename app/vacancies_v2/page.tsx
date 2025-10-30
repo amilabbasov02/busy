@@ -52,18 +52,11 @@ function VacanciesV2Content() {
     const [vacancies, setVacancies] = useState<Vacancy[]>([]);
     const [loading, setLoading] = useState(true);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [isPositionDropdownOpen, setIsPositionDropdownOpen] = useState(false);
-    const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
-    const [positionValue, setPositionValue] = useState('');
-    const [locationValue, setLocationValue] = useState('');
-    const [filters, setFilters] = useState<any>({ employmentType: [], category: [], position: '', location: '' });
+    const [filters, setFilters] = useState<any>({ employmentType: [], category: [] });
     const [totalPages, setTotalPages] = useState(0);
     const searchParams = useSearchParams();
     const page = searchParams.get('page') || '1';
     const currentPage = parseInt(page, 10);
-
-    const positions = ['Frontend Developer', 'Backend Developer', 'Project Manager', 'UI/UX Designer'];
-    const locations = ['Bakı', 'Sumqayıt', 'Gəncə', 'Mingəçevir'];
 
     const handleFilterChange = (category: string, value: string) => {
         setFilters((prevFilters: any) => {
@@ -73,14 +66,6 @@ function VacanciesV2Content() {
                 : [...currentCategoryFilters, value];
             return { ...prevFilters, [category]: newCategoryFilters };
         });
-    };
-
-    const handleSearch = () => {
-        setFilters((prevFilters: any) => ({
-            ...prevFilters,
-            position: positionValue,
-            location: locationValue,
-        }));
     };
 
     useEffect(() => {
@@ -99,16 +84,86 @@ function VacanciesV2Content() {
             </button>
             <div className="main-layout">
                 <div className={`filter-sidebar ${isFilterOpen ? 'open' : ''}`}>
-                    {/* ... filter content ... */}
+                    <div className="filter-sidebar-inner">
+                        <button className="filter-close-button" onClick={() => setIsFilterOpen(false)}>&times;</button>
+                        <h3>Filterlər</h3>
+                        <div className="filter-widget">
+                            <details open>
+                                <summary>Məşğulluq növü</summary>
+                                <div className="checkbox-list-wrapper">
+                                    <ul className="filter-list checkbox-list">
+                                        {['Tam iş günü', 'Yarım iş günü', 'Distant', 'Sərbəst', 'Təcrübə', 'Müvəqqəti', 'Könüllü', 'Hibrid', 'Növbəli'].map((type, index) => (
+                                            <li key={type}>
+                                                <input type="checkbox" id={`type${index}`} onChange={() => handleFilterChange('employmentType', type)} />
+                                                <label htmlFor={`type${index}`}>{type}</label>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                        <div className="filter-widget">
+                            <details open>
+                                <summary>İş kateqoriyaları</summary>
+                                <input type="text" placeholder="İş kateqoriyasını axtar" className="filter-search-input" />
+                                <div className="checkbox-list-wrapper">
+                                    <ul className="filter-list checkbox-list">
+                                        {['İnzibati', 'Maliyyə', 'IT', 'Tibb və Əczaçılıq', 'Sənaye və istehsalat', 'Turizm və restoran', 'Hüquq', 'Marketinq', 'Satış'].map((cat, index) => (
+                                            <li key={cat}>
+                                                <input type="checkbox" id={`cat${index}`} onChange={() => handleFilterChange('category', cat)} />
+                                                <label htmlFor={`cat${index}`}>{cat}</label>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
                 </div>
                 <div className="job-listings">
                     {loading ? <p>Yüklənir...</p> : vacancies.map(vacancy => (
                         <div key={vacancy.id} className={`job-card ${vacancy.isPremium ? 'premium' : ''}`}>
-                            {/* ... vacancy card content ... */}
+                            {vacancy.isPremium && <div className="premium-badge">Premium</div>}
+                            <div className="job-card-header">
+                                <img src={vacancy.logo} alt={`${vacancy.company} logo`} />
+                                <div className="job-card-title">
+                                    <h3><Link href={vacancy.href}>{vacancy.title}</Link></h3>
+                                    <p>{vacancy.company}</p>
+                                </div>
+                            </div>
+                            <div className="job-card-details">
+                                <span><i className="icon-material-outline-location-on"></i> {vacancy.location}</span>
+                                <span><i className="icon-material-outline-access-time"></i> {vacancy.time}</span>
+                            </div>
+                            <Link href={vacancy.href} className="button button-sliding-icon">Ətraflı <i className="icon-material-outline-arrow-right-alt"></i></Link>
                         </div>
                     ))}
                     <div className="pagination-container">
-                        {/* ... pagination content ... */}
+                        <nav className="pagination">
+                            <ul>
+                                {currentPage > 1 && (
+                                    <li className="pagination-arrow">
+                                        <Link href={`/vacancies_v2?page=${currentPage - 1}`}>
+                                            <i className="icon-material-outline-keyboard-arrow-left"></i>
+                                        </Link>
+                                    </li>
+                                )}
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                                    <li key={p}>
+                                        <Link href={`/vacancies_v2?page=${p}`} className={currentPage === p ? 'current-page' : ''}>
+                                            {p}
+                                        </Link>
+                                    </li>
+                                ))}
+                                {currentPage < totalPages && (
+                                    <li className="pagination-arrow">
+                                        <Link href={`/vacancies_v2?page=${currentPage + 1}`}>
+                                            <i className="icon-material-outline-keyboard-arrow-right"></i>
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -117,6 +172,13 @@ function VacanciesV2Content() {
 }
 
 export default function VacanciesV2() {
+    const [positionValue, setPositionValue] = useState('');
+    const [locationValue, setLocationValue] = useState('');
+    const [isPositionDropdownOpen, setIsPositionDropdownOpen] = useState(false);
+    const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
+    const positions = ['Frontend Developer', 'Backend Developer', 'Project Manager', 'UI/UX Designer'];
+    const locations = ['Bakı', 'Sumqayıt', 'Gəncə', 'Mingəçevir'];
+
   return (
     <>
       <Head>
@@ -129,9 +191,50 @@ export default function VacanciesV2() {
           <div className="container">
             <h1>Sənin üçün ən yaxşı işi tap</h1>
             <p>Azərbaycanda minlərlə iş elanı arasında axtarış et</p>
-            {/* Search form can be a separate component if it doesn't use searchParams */}
             <div className="search-form">
-                {/* ... search form content ... */}
+                <div className="search-input-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Vəzifə adı və ya açar söz"
+                        value={positionValue}
+                        onChange={(e) => setPositionValue(e.target.value)}
+                        onFocus={() => setIsPositionDropdownOpen(true)}
+                        onBlur={() => setTimeout(() => setIsPositionDropdownOpen(false), 200)}
+                    />
+                    {isPositionDropdownOpen && (
+                        <div className="search-dropdown">
+                            <ul>
+                                {positions.filter(p => p.toLowerCase().includes(positionValue.toLowerCase())).map(pos => (
+                                    <li key={pos} onMouseDown={() => { setPositionValue(pos); setIsPositionDropdownOpen(false); }}>
+                                        {pos}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+                <div className="search-input-wrapper">
+                    <input
+                        type="text"
+                        placeholder="Şəhər və ya rayon"
+                        value={locationValue}
+                        onChange={(e) => setLocationValue(e.target.value)}
+                        onFocus={() => setIsLocationDropdownOpen(true)}
+                        onBlur={() => setTimeout(() => setIsLocationDropdownOpen(false), 200)}
+                    />
+                    {isLocationDropdownOpen && (
+                        <div className="search-dropdown">
+                            <ul>
+                                {locations.filter(l => l.toLowerCase().includes(locationValue.toLowerCase())).map(loc => (
+                                    <li key={loc} onMouseDown={() => { setLocationValue(loc); setIsLocationDropdownOpen(false); }}>
+                                        {loc}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+                <button className="button">Axtar</button>
             </div>
           </div>
         </div>
