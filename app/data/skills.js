@@ -1,0 +1,22 @@
+export const skills = [
+    { value: '1', label: 'JavaScript' },
+    { value: '2', label: 'React' },
+    { value: '3', label: 'Node.js' },
+    { value: '4', label: 'HTML' },
+    { value: '5', label: 'CSS' },
+    { value: '6', label: 'Angular' },
+    { value: '7', label: 'Vue.js' },
+    { value: '8', label: 'SQL' },
+    { value: '9', label: 'NoSQL' },
+    { value: '10', label: 'MongoDB' },
+    { value: '11', label: 'Python' },
+    { value: '12', label: 'Java' },
+    { value: '13', label: 'C#' },
+    { value: '14', label: 'C++' },
+    { value: '15', label: 'PHP' },
+    { value: '16', label: 'Ruby' },
+    { value: '17', label: 'Go' },
+    { value: '18', label: 'Swift' },
+    { value: '19', label: 'Kotlin' },
+    { value: '20', label: 'TypeScript' }
+];

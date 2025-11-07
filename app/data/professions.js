@@ -1,0 +1,22 @@
+export const professions = [
+    { value: '1', label: 'Software Engineer' },
+    { value: '2', label: 'Frontend Developer' },
+    { value: '3', label: 'Backend Developer' },
+    { value: '4', label: 'Full Stack Developer' },
+    { value: '5', label: 'Mobile App Developer' },
+    { value: '6', label: 'DevOps Engineer' },
+    { value: '7', label: 'Data Scientist' },
+    { value: '8', label: 'Data Analyst' },
+    { value: '9', label: 'Machine Learning Engineer' },
+    { value: '10', label: 'AI Engineer' },
+    { value: '11', label: 'Product Manager' },
+    { value: '12', label: 'Project Manager' },
+    { value: '13', label: 'UI/UX Designer' },
+    { value: '14', label: 'Graphic Designer' },
+    { value: '15', label: 'Digital Marketing Specialist' },
+    { value: '16', label: 'Content Creator' },
+    { value: '17', label: 'Human Resources Manager' },
+    { value: '18', label: 'Accountant' },
+    { value: '19', label: 'Financial Analyst' },
+    { value: '20', label: 'Sales Manager' }
+];

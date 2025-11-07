@@ -24,10 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="/css/icons.css" />
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/colors/blue.css" />
+        <link rel="stylesheet" href="/css/bootstrap-select.min.css" />
         <link rel="stylesheet" href="/css/pages/index.css" />
         <link rel="stylesheet" href="/css/custom.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/dropify.css" />
       </head>
       <body>
         {/* Wrapper */}
@@ -147,6 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src="/js/tippy.all.min.js" strategy="lazyOnload" />
         <Script src="/js/simplebar.min.js" strategy="lazyOnload" />
         <Script src="/js/bootstrap-slider.min.js" strategy="lazyOnload" />
+        <Script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
         <Script src="/js/bootstrap-select.min.js" strategy="afterInteractive" />
         <Script src="/js/snackbar.js" strategy="lazyOnload" />
         <Script src="/js/clipboard.min.js" strategy="lazyOnload" />
@@ -162,6 +165,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
         <Script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" strategy="lazyOnload" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" strategy="lazyOnload" />
       </body>
     </html>
   );

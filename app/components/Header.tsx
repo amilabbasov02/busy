@@ -109,10 +109,8 @@ const Header = () => {
                             </div>
                           </div>
                         ) : (
-                          <div className="header-notifications-trigger">
-                              <Link href="/login">
-                                  <div className="user-avatar status-online"><img src="/images/user-avatar-placeholder.png" alt="" /></div>
-                              </Link>
+                          <div className="header-widget">
+                            <Link href="/login" className="log-in-button"><i className="icon-feather-log-in"></i><span>Daxil ol</span></Link>
                           </div>
                         )}
                       </div>

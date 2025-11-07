@@ -2,9 +2,14 @@
 
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
+interface User {
+  userType: 'user' | 'company' | null;
+}
+
 interface AuthContextType {
   isLoggedIn: boolean;
-  login: () => void;
+  user: User;
+  login: (userType: 'user' | 'company') => void;
   logout: () => void;
 }
 
@@ -12,26 +17,32 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<User>({ userType: null });
 
   useEffect(() => {
-    const storedLoginStatus = localStorage.getItem('isLoggedIn');
-    if (storedLoginStatus === 'true') {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const parsedUser: User = JSON.parse(storedUser);
+      setUser(parsedUser);
       setIsLoggedIn(true);
     }
   }, []);
 
-  const login = () => {
-    localStorage.setItem('isLoggedIn', 'true');
+  const login = (userType: 'user' | 'company') => {
+    const userData: User = { userType };
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
+    setUser({ userType: null });
     setIsLoggedIn(false);
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -285,10 +285,6 @@ nav.pagination ul li:nth-last-child(4){
     position: relative
 }
 
-.job-listing:hover {
-    box-shadow: 0 2px 18px rgba(0, 0, 0, .14);
-    transform: translateY(-4px)
-}
 
 .job-listing-details {
     display: flex;

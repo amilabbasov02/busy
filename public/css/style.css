@@ -2404,7 +2404,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 }
 
 .footer-links ul li a:hover {
-	color: #fff
+    color: #fff !important;
 }
 
 .footer-links ul li a span:before {
@@ -4574,10 +4574,6 @@ span.blog-item-tag {
 	position: relative
 }
 
-.job-listing:hover {
-	box-shadow: 0 2px 18px rgba(0, 0, 0, .14);
-	transform: translateY(-4px)
-}
 
 .job-listing-details {
 	display: flex;
@@ -7785,10 +7781,13 @@ input:checked+.switch-button:before {
 }
 
 .intro-search-button .button {
-	height: 52px;
-	line-height: 52px;
-	padding: 0 30px;
-	font-size: 18px
+    height: 52px;
+    line-height: 52px;
+    padding: 0 30px;
+    font-size: 18px;
+    background-color: #2a41e8 !important;
+    color: #fff !important;
+    cursor: pointer;
 }
 
 .intro-banner-search-form input:focus {
@@ -11227,10 +11226,14 @@ screen and (max-height:300px) {
     background-color: #47bb67;
     border: 1px solid #2a41e8;
     border-bottom: none;
-    padding: 10px;
-    padding-bottom: 51px;
+    padding: 0px;
+    padding-bottom: 0;
+    border: none;
     border-radius: 0;
-	background: #fff;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .account-type input.account-type-radio:empty~label:after,
@@ -14919,9 +14922,11 @@ a.attachment-box:hover i {
 }
 
 .dashboard-content-inner {
-	padding: 50px;
-	padding-bottom: 0;
-	position: relative
+    padding: 50px;
+    padding-bottom: 0;
+    position: relative;
+    overflow-y: auto;
+    max-height: 900px;
 }
 
 @media (min-width:1099px) {
@@ -15397,7 +15402,9 @@ ul.dashboard-box-list>li:last-child {
 }
 
 ul.dashboard-box-list>li:hover {
-	background-color: #fcfcfc
+	background-color: #fcfcfc;
+	box-shadow: 0 2px 18px rgba(0, 0, 0, .14);
+	transform: translateY(-4px);
 }
 
 .dashboard-box-list .notification-text {
@@ -15425,14 +15432,15 @@ ul.dashboard-box-list>li:hover {
 	right: 30px;
 	top: 50%;
 	transform: translateY(-50%);
-	opacity: 0;
+	opacity: 1;
 	transition: .3s;
 	box-shadow: 0 0 10px 15px #fff;
-	background-color: #fff
+	display: flex;
+	background-color: #fff;
+	align-items: center;
 }
 
-.dashboard-box-list .buttons-to-right.always-visible,
-.dashboard-box-list li:hover .buttons-to-right {
+.dashboard-box-list .buttons-to-right.always-visible {
 	opacity: 1
 }
 
@@ -19034,4 +19042,172 @@ p {
 
 .text-capitalize {
     text-align: left;
+}
+
+/* Custom Dashboard Styles */
+.dashboard-sidebar {
+    background-color: #FFFFFF !important;
+}
+
+.dashboard-content-container {
+    background-color: #f9f9f9 !important;
+}
+
+.dashboard-nav ul:before {
+    color: #2a41e8 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+}
+
+.dashboard-nav ul li a {
+    color: #888 !important;
+    font-size: 16px !important;
+}
+
+.dashboard-nav ul li:hover a,
+.dashboard-nav ul li.active a {
+    color: #2a41e8 !important;
+    background-color: transparent !important;
+}
+
+.dashboard-nav ul li:hover,
+.dashboard-nav ul li.active {
+    background-color: transparent !important;
+    border-left: 3px solid #2a41e8 !important;
+}
+
+.dashboard-nav ul li a i {
+    color: #888 !important;
+}
+
+.dashboard-nav ul li:hover a i,
+.dashboard-nav ul li.active a i {
+    color: #2a41e8 !important;
+}
+
+.dashboard-box .headline h3 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #2a41e8 !important;
+    line-height: 26px !important;
+}
+
+.dashboard-box .headline h3 i {
+    color: #2a41e8 !important;
+}
+
+/* General Color and Font Size Override */
+a, .header-widget .log-in-button:hover i, .notification-text span.color, .header-notifications-content .notification-text span.color, ul.user-menu-small-nav li a:hover, ul.user-menu-small-nav li a:hover i, #navigation ul li:hover a:after, #navigation ul li a.current, #navigation ul li a.current:after, #navigation ul li:hover a, #breadcrumbs ul li a:hover, #breadcrumbs.white ul li a:hover, .single-page-header .header-details li a:hover, .blog-post-content h3 a:hover, #posts-nav li a:hover, .task-tags span, .freelancer-detail-item a:hover, .list-4 li:before, .list-3 li:before, .list-2 li:before, .list-1 li:before, .share-buttons-content span strong, .keyword, .banner-headline strong.color, .category-box-icon, .recommended .pricing-plan-label, .recommended .pricing-plan-label strong, .boxed-widget.summary li.total-costs span, .testimonial-box:before, .single-counter h3, .popup-tabs-nav li.active a, .dialog-with-tabs .forgot-password:hover, .dropdown-menu > li > a:hover, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .bootstrap-select .dropdown-menu li.selected a span.check-mark:before, .bootstrap-select .dropdown-menu li.selected:hover a span.check-mark:before, .boxed-list-headline h3 i, .boxed-list-item .item-details .detail-item a:hover, .job-overview .job-overview-inner ul li i, .dashboard-nav ul:before, .dashboard-nav ul li.active-submenu a i, .dashboard-nav ul li.active a i, .dashboard-nav ul li:hover a i, .dashboard-nav ul li.active-submenu a, .dashboard-nav ul li:hover a, .dashboard-nav ul li.active a, .dashboard-nav ul li.active-submenu a:after, .dashboard-nav ul li.active a:after, .dashboard-nav ul li:hover a:after, .dashboard-box .headline h3 i, .help-icon, .header-widget .log-in-button:hover, .header-widget .log-in-button:hover i {
+    color: #2a41e8 !important;
+    font-size: 18px !important;
+}
+
+.f-11 {
+            background-color: #66bb6a !important;
+        }
+        .f-12{
+            background-color: #78909c !important;
+        }
+        .f-status {
+            padding: 6px 5px 8px 21px;
+            background-color: #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 500;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            white-space: nowrap;
+
+        }
+        .f-status:before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 9px;
+            width: 12px;
+            height: 12px;
+            display: block;
+            background-size: cover;
+        }
+        .f-11:before {
+            content: "";
+            background-image: url(https://cdn.ainsyndication.com/front/images/success.svg?V6);
+            width: 14px;
+            height: 14px;
+            margin-right: 2px;
+        }
+        .f-12:before {
+            content: "";
+            background-image: url(https://cdn.ainsyndication.com/front/images/pending.svg?V6);
+            width: 14px;
+            height: 14px;
+            margin-right: 2px;
+        }
+        .f-10:before {
+            content: "";
+            background-image: url(/site/images/disable4.svg?V7);
+            width: 14px;
+            height: 13px;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .f-9:before {
+            content: "";
+            background-image: url(/images/time-out2.svg);
+            width: 14px;
+            height: 14px;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .f-8:before {
+            content: "";
+            background-image: url(/site/images/draft2.svg?V7);
+            width: 14px;
+            height: 14px;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .f-7:before {
+            content: "";
+            background-image: url(/site/images/deleted.svg?V2);
+            width: 14px;
+            height: 14px;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .red{
+            background: #D10000;
+        }
+        .red1{
+            background: #FF0000;
+        }
+        .draft{
+            background: #E0EEFF;
+            color: #052C5E;
+        }
+        .time_out{
+            background: #FEF7DE;
+            color: #45350E;
+        }
+        .deactive{
+            background: #E6E6E6;
+            color: #9C9C9C;
+        }
+        .deleted{
+            background: #FDD9D9;
+            color: #570407;
+        }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination ul li.current-page a,
+.pagination ul li a.current-page {
+    background-color: #2a41e8 !important;
+    color: #fff !important;
 }

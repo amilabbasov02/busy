@@ -13,8 +13,11 @@ const LoginPage = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (email === 'admin@azerforum.com' && password === 'admin123') {
-      login();
-      router.push('/');
+      login('company');
+      router.push('/dashboard/jobs');
+    } else if (email === 'user@example.com' && password === 'password123') {
+      login('user');
+      router.push('/dashboard/profile/settings');
     } else {
       alert('E-poçt və ya parol yanlışdır.');
     }
@@ -24,6 +27,12 @@ const LoginPage = () => {
     <>
       <style>
         {`
+          #titlebar h2 {
+            font-size: 30px;
+            line-height: 40px;
+            margin: 1px 0 3px 0;
+            max-width: 474px;
+          }
           button.facebook-login:hover a{
             color: white !important;
           }
@@ -43,8 +52,8 @@ const LoginPage = () => {
       <div id="titlebar" className="gradient">
         <div className="container">
           <div className="row">
-            <div className="col-xl-5 offset-xl-3">
-              <h2>Daxil ol</h2>
+            <div className="col-xl-6 offset-xl-3">
+              <h2 className="text-center">Daxil ol</h2>
               <nav id="breadcrumbs" className="dark d-none">
                 <ul>
                   <li><Link href="/">Baş səhifə</Link></li>
@@ -59,7 +68,7 @@ const LoginPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-5 offset-xl-3">
-            <div className="login-register-page">
+            <div className="login-register-page" style={{ maxWidth: '474px' }}>
               {/* Welcome Text */}
               <div className="welcome-text">
                 <h3>Səni saytımızda görmək xoşdur.</h3>

@@ -2132,3 +2132,24 @@ input.t_check_value {
         font-size: 13px;
     }
 }
+
+/* Always show dashboard job action buttons (override with !important) */
+ul.dashboard-box-list > li .buttons-to-right {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1 !important; /* Force visibility */
+    transition: .3s;
+    box-shadow: 0 0 10px 15px #fff;
+    display: flex !important; /* Force display */
+    background-color: #fff;
+    align-items: center;
+}
+
+
+/* Center Dropify text */
+.dropify-wrapper .dropify-message p {
+    text-align: center;
+    width: 100%;
+}
