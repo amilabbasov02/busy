@@ -40,104 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
 
             {/* Footer */}
-          <div id="footer">
-            <div className="footer-middle-section" style={{ borderBottom: '1px solid #484848' }}>
-              <div className="container">
-                <div className="row">
-                  {/* Static Footer Content Placeholder */}
-                  <div className="col-md-3">
-                    <div className="footer-links">
-                      <h4>For Candidates</h4>
-                      <ul>
-                        <li><a href="#">Browse Jobs</a></li>
-                        <li><a href="#">Browse Categories</a></li>
-                        <li><a href="#">Submit Resume</a></li>
-                        <li><a href="#">Candidate Dashboard</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="footer-links">
-                      <h4>For Employers</h4>
-                      <ul>
-                        <li><a href="#">Post a Job</a></li>
-                        <li><a href="#">Browse Candidates</a></li>
-                        <li><a href="#">Employer Dashboard</a></li>
-                        <li><a href="#">Packages</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="footer-links">
-                      <h4>Helpful Links</h4>
-                      <ul>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="footer-links">
-                      <h4>Account</h4>
-                      <ul>
-                        <li><a href="#">Log In</a></li>
-                        <li><a href="#">My Account</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="footer-top-section">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="footer-rows-container">
-                      <div className="row">
-                        <div className="col-md-3 col-xl-3 col-lg-3 col-sm-12">
-                          <div className="footer-rows-left">
-                            <div className="footer-row">
-                              <div className="footer-row-inner footer-logo"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-6 col-xl-6 col-lg-6 col-sm-12 resp-m-0" style={{ paddingTop: '2.4%' }}>
-                          <div className="footer-row" style={{ width: '100%' }}>
-                            <div className="footer-row-inner" style={{ width: '100%' }}>
-                              <ul className="footer-social-links" style={{ display: 'flex', justifyContent: 'center' }}>
-                                <li><a href="#" className="fb-icon" title="Facebook" target="_blank"><i className="icon-brand-facebook-f"></i></a></li>
-                                <li><a href="#" className="lnk-icon" title="LinkedIn" target="_blank"><i className="icon-brand-linkedin-in"></i></a></li>
-                                <li><a href="#" className="ins-icon" title="Instagram" target="_blank"><i className="icon-brand-instagram"></i></a></li>
-                                <li><a href="#" className="twt-icon" title="Twitter" target="_blank"><i className="icon-brand-twitter"></i></a></li>
-                                <li><a href="#" className="youtube-icon" title="Youtube" target="_blank"><i className="icon-brand-youtube"></i></a></li>
-                                <li><a href="#" className="lnk-icon" title="Telegram" target="_blank"><i className="icon-brand-telegram"></i></a></li>
-                              </ul>
-                              <div className="clearfix"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-3 col-xl-3 col-lg-3 col-sm-12" style={{ paddingTop: '2%' }}>
-                          <div className="footer-row-inner">
-                            {/* Language switcher will need to be a client component */}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="footer-bottom-section">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    © {new Date().getFullYear()} <strong>Busy.az.</strong> All Rights Reserved.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           </div>
         </AuthProvider>
         {/* Wrapper / End */}
@@ -145,18 +47,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Scripts */}
         <Script src="/js/jquery-3.4.1.min.js" strategy="beforeInteractive" />
         <Script src="/js/jquery-migrate-3.1.0.min.js" strategy="beforeInteractive" />
+        <Script id="jquery-fix" strategy="afterInteractive">
+          {`
+            if (typeof window.jQuery !== 'undefined') {
+              window.$ = window.jQuery;
+            }
+          `}
+        </Script>
         <Script src="/js/mmenu.min.js" strategy="lazyOnload" />
         <Script src="/js/tippy.all.min.js" strategy="lazyOnload" />
         <Script src="/js/simplebar.min.js" strategy="lazyOnload" />
         <Script src="/js/bootstrap-slider.min.js" strategy="lazyOnload" />
         <Script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
-        <Script src="/js/bootstrap-select.min.js" strategy="afterInteractive" />
         <Script src="/js/snackbar.js" strategy="lazyOnload" />
         <Script src="/js/clipboard.min.js" strategy="lazyOnload" />
         <Script src="/js/counterup.min.js" strategy="lazyOnload" />
         <Script src="/js/magnific-popup.min.js" strategy="lazyOnload" />
         <Script src="/js/slick.min.js" strategy="lazyOnload" />
         <Script src="/js/custom.js?v=1.1.71" strategy="lazyOnload" />
+        <Script src="/js/bootstrap-select.min.js" strategy="lazyOnload" />
         <Script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" strategy="lazyOnload" />
         <Script id="lozad-init" strategy="lazyOnload">
           {`
