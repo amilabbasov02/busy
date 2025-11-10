@@ -2049,3 +2049,16 @@ ul.dashboard-box-list > li {
     box-shadow: 0 3px 8px rgba(234, 65, 81, .15);
     color: #fff !important;
 }
+.intro-search-select {
+    padding: 10px 12px;
+    border-left: 1px solid #e4e4e4;
+    display: flex;
+    align-items: center;
+}
+
+.intro-banner-search-form .intro-search-field {
+    border-right: none;
+}
+.intro-search-select .bootstrap-select {
+    margin-bottom: 0 !important;
+}

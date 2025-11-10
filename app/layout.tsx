@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import { AuthProvider } from './contexts/AuthContext';
 import "./globals.css";
 import "../public/css/pages/posts.css";
@@ -39,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {children}
 
-            {/* Footer */}
+            <Footer />
           </div>
         </AuthProvider>
         {/* Wrapper / End */}
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script src="/js/magnific-popup.min.js" strategy="lazyOnload" />
         <Script src="/js/slick.min.js" strategy="lazyOnload" />
         <Script src="/js/custom.js?v=1.1.71" strategy="lazyOnload" />
-        <Script src="/js/bootstrap-select.min.js" strategy="lazyOnload" />
+        <Script src="/js/bootstrap-select.min.js" strategy="beforeInteractive" />
         <Script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js" strategy="lazyOnload" />
         <Script id="lozad-init" strategy="lazyOnload">
           {`

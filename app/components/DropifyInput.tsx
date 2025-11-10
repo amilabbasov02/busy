@@ -11,6 +11,15 @@ const DropifyInput: React.FC<DropifyInputProps> = ({ name, id, multiple = false 
   const inputRef = useRef<HTMLInputElement>(null);
 
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).$) {
+      const $ = (window as any).$;
+      if (inputRef.current && $.fn.dropify) {
+        $(inputRef.current).dropify();
+      }
+    }
+  }, []);
+
   return (
     <input
       ref={inputRef}

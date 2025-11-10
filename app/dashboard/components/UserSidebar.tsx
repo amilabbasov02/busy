@@ -28,14 +28,14 @@ const UserSidebar = () => {
                     Fərdi məlumatlar
                   </Link>
                 </li>
-                <li className={pathname === '/dashboard/profile/education' ? 'active' : ''}>
-                  <Link href="/dashboard/profile/education">
+                <li className={pathname === '/dashboard/jobseeker/education' ? 'active' : ''}>
+                  <Link href="/dashboard/jobseeker/education">
                     <i className="icon-material-outline-school"></i>
                     Təhsil
                   </Link>
                 </li>
-                <li className={pathname === '/dashboard/profile/experience' ? 'active' : ''}>
-                  <Link href="/dashboard/profile/experience">
+                <li className={pathname === '/dashboard/jobseeker/experience' ? 'active' : ''}>
+                  <Link href="/dashboard/jobseeker/experience">
                     <i className="icon-material-outline-business-center"></i>
                     İş təcrübəsi
                   </Link>
@@ -55,8 +55,8 @@ const UserSidebar = () => {
                     Rəylər
                   </Link>
                 </li>
-                <li className={pathname === '/dashboard/profile/settings' ? 'active' : ''}>
-                  <Link href="/dashboard/profile/settings">
+                <li className={pathname === '/dashboard/jobseeker/settings' ? 'active' : ''}>
+                  <Link href="/dashboard/jobseeker/settings">
                     <i className="icon-material-outline-supervisor-account"></i>
                     Profil ayarları
                   </Link>

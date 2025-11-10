@@ -114,29 +114,7 @@ span.round-tab i{
 .wizard h3 {
     margin-top: 0;
 }
-
-.save-experience-btn {
-    background-color: blue !important;
-    color: #fff !important;
-    padding: 10px 20px !important;
-    cursor: pointer !important;
-}
 .dashboard-content-inner {
     max-height: none !important;
     overflow-y: visible !important;
-}
-.select2-selection__choice, .select2-selection__choice:hover {
-    background-color: blue !important;
-    color: #fff !important;
-    border: none !important;
-}
-
-.select2-selection__choice__remove, .select2-selection__choice__remove:hover {
-    color: #fff !important;
-    background-color: transparent !important;
-}
-.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
-    cursor: default;
-    padding-left: 10px !important;
-    padding-right: 5px !important;
 }

@@ -19,13 +19,30 @@ export default function Home() {
   const [activeHowItTab, setActiveHowItTab] = useState(0);
 
   useEffect(() => {
+    // This effect runs once on component mount to initialize scripts for elements that are always visible.
+    if (typeof window.jQuery !== 'undefined') {
+      const $ = window.jQuery;
+      
+      // Initialize the selectpicker for the main search bar
+      $('.intro-banner-search-form .selectpicker').selectpicker({
+        noneSelectedText: "seçilməyib"
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    // This effect handles the setup and teardown of the advanced search section.
+    // It runs whenever `isAdvancedSearchOpen` changes.
     if (isAdvancedSearchOpen && typeof window.jQuery !== 'undefined') {
       const $ = window.jQuery;
 
-      ($('.selectpicker') as any).selectpicker({
+      // Initialize selectpickers within the advanced search section
+      $('#accordion-body .selectpicker').selectpicker({
         noneSelectedText: "seçilməyib"
       });
 
+      // --- Start of event handlers for the category pop-up ---
+      
       $(".search").on('click', function () {
         $(".pop-up").addClass("active_pop");
       });
@@ -223,8 +240,17 @@ export default function Home() {
       const selectionDisplayElem = document.getElementById("selectionDisplay");
       selectionDisplayElem?.addEventListener("click", selectionDisplayHandler as EventListener);
 
+      // --- End of event handlers ---
+
       return () => {
-        // Cleanup listeners
+        // Cleanup function: runs when the component unmounts or `isAdvancedSearchOpen` changes.
+        
+        // Destroy selectpickers in the advanced search section
+        if (($('#accordion-body .selectpicker') as any).data('selectpicker')) {
+          ($('#accordion-body .selectpicker') as any).selectpicker('destroy');
+        }
+
+        // Cleanup all event listeners
         $(".search").off('click');
         $(".region b").off('click');
         $(".all_slc input").off('click');
@@ -327,6 +353,14 @@ export default function Home() {
                     <label htmlFor="intro-keywords" className="field-title ripple-effect">istədiyin işin adını axtarışa ver</label>
                     <input id="intro-keywords" type="text" name="q" placeholder="vakansiyanın adı yaxud açar-söz" autoComplete="off" />
                   </div>
+                  <div className="intro-search-select">
+                      <select className="selectpicker" name="type" data-width="180px">
+                          <option value="vacancy">Vakansiya</option>
+                          <option value="company">Şirkət</option>
+                          <option value="skill">Bilik</option>
+                          <option value="profession">İxtisas</option>
+                      </select>
+                  </div>
                   <div className="intro-search-button">
                     <button className="button ripple-effect" role="submit">axtar</button>
                   </div>
@@ -420,7 +454,7 @@ export default function Home() {
                                 <div className="section-headline mt-25 mb-12">
                                   <h5>İş təcrübəsi (minimum il)</h5>
                                 </div>
-                                <select className="selectpicker" name="experiences[]" data-live-search="true">
+                                <select className="selectpicker" name="experience" data-live-search="true">
                                   <option value="0" disabled selected>Seçilməyib</option>
                                   <option value="1">Tələb olunmur</option>
                                   <option value="3">1</option>

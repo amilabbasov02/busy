@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './experience.css';
+import { skills } from '@/app/data/skills';
 import BootstrapSelect from '@/app/components/BootstrapSelect';
 
 const ExperiencePage = () => {
@@ -16,6 +17,15 @@ const ExperiencePage = () => {
         const newExperiences = experiences.filter((_, i) => i !== index);
         setExperiences(newExperiences);
     };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).$) {
+      const $ = (window as any).$;
+      if ($.fn.select2) {
+        $('.skills').select2();
+      }
+    }
+  }, []);
 
   return (
     <div className="dashboard-content-inner">
@@ -68,7 +78,11 @@ const ExperiencePage = () => {
                         <div className="col-xl-12">
                           <div className="submit-field">
                             <h5>Bacarıqlar/biliklər</h5>
-                            {/* Skills select component will be rendered here */}
+                            <select className="skills form-control" multiple name="skills[]">
+                                {skills.map(skill => (
+                                    <option key={skill.value} value={skill.value} selected={skill.value === '4' || skill.value === '13'}>{skill.label}</option>
+                                ))}
+                            </select>
                           </div>
                         </div>
                         <div className="col-xl-12">
@@ -142,14 +156,16 @@ const ExperiencePage = () => {
                           </div>
                         </div>
                       </div>
-                      <ul className="list-inline pull-right">
-                        <li>
-                          <button type="submit" className="default-btn submitButton next-step ripple-effect big margin-top-30 button-sliding-icon">
-                            Yadda saxla
-                            <i className="icon-feather-check"></i>
-                          </button>
-                        </li>
-                      </ul>
+                      <div style={{ width: '100%', textAlign: 'right' }}>
+                        <ul className="list-inline">
+                          <li>
+                            <button type="submit" className="default-btn submitButton next-step ripple-effect big margin-top-30 button-sliding-icon save-experience-btn">
+                              Yadda saxla
+                              <i className="icon-feather-check"></i>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
