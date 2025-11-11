@@ -91,10 +91,11 @@ input[type=checkbox] {
 }
 
 input[type=radio] {
-	width: 15px;
-	height: 15px;
-	cursor: pointer;
-	box-shadow: none
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    box-shadow: none;
+    margin-right: 5px;
 }
 
 ::placeholder {
@@ -113,11 +114,11 @@ textarea {
 
 label,
 legend {
-	display: block;
-	font-weight: 700;
-	font-size: 16px;
-	font-weight: 400;
-	margin-bottom: 8px
+    display: block;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-right: 15px;
 }
 
 label span,

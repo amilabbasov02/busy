@@ -20,7 +20,7 @@ const mockJobs = [
 ];
 
 
-const EditJobPage = ({ params }: { params: { id: string } }) => {
+const EditJobPage = ({ params }: any) => {
   const jobId = params.id;
   const isInitialMount = useRef(true);
 

@@ -1367,6 +1367,7 @@ section.blank p {
   font-size: 20px;
   color: #6c757d;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .search-form {
@@ -1563,12 +1564,17 @@ section.blank p {
   display: inline-block;
   text-decoration: none;
   transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
 }
 
 .job-card .button:hover {
   background-color: var(--primary-color);
   color: #fff;
 }
+
 
 /* Pagination */
 .pagination-container {
@@ -1769,7 +1775,7 @@ section.blank p {
 .checkbox-list input[type="checkbox"]:checked + label::before {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    content: '\\2713';
+    content: '✓';
     color: #fff;
     display: flex;
     align-items: center;
@@ -1862,6 +1868,10 @@ section.blank p {
 
 .search-dropdown ul li:hover {
     background-color: #f5f5f5;
+}
+
+.search-dropdown ul li {
+    text-align: left;
 }
 /* Custom Select2 Styles */
 .select2-container--default .select2-selection--single {
@@ -2061,4 +2071,65 @@ ul.dashboard-box-list > li {
 }
 .intro-search-select .bootstrap-select {
     margin-bottom: 0 !important;
+}
+
+.salary-slider {
+    padding: 10px 0;
+}
+
+.horizontal-slider {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin: 20px 0;
+}
+
+.slider-track {
+    background-color: var(--primary-color);
+    height: 6px;
+    border-radius: 3px;
+}
+
+.slider-thumb {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    top: -15px;
+    font-size: 12px;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.slider-thumb::after {
+    content: attr(aria-valuenow);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.salary-type {
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 15px;
+    align-items: center;
+}
+
+.slider-thumb:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
 }
