@@ -1,0 +1,284 @@
+/* General Layout */
+.container {
+    max-width: 1040px;
+    margin: 120px auto 60px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+}
+
+/* 1. Article Title Block */
+.titleBlock {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.categoryTag {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 24px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.postTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #111827;
+    margin: 0 auto 24px auto;
+    max-width: 100%;
+}
+
+.metaInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.authorInfo, .metaItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.authorAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 2. Hero Image */
+.heroImage {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    background-color: #f3f4f6;
+}
+
+/* 3. Article Content */
+.articleContent {
+    line-height: 1.8;
+    color: #374151;
+}
+
+.articleContent h2, .articleContent h3 {
+    font-weight: 700;
+    color: #111827;
+    margin: 2.5em 0 1em 0;
+}
+
+.articleContent h2 { font-size: 1.6em; }
+.articleContent h3 { font-size: 1.3em; }
+.articleContent p { font-size: inherit; }
+.articleContent a { color: #4f46e5; text-decoration: none; }
+.articleContent a:hover { text-decoration: underline; }
+.articleContent ul, .articleContent ol { padding-left: 24px; margin-bottom: 1.5em; }
+.articleContent li { margin-bottom: 0.5em; }
+
+.highlightedQuote {
+    margin: 2.5em 0;
+    padding-left: 24px;
+    border-left: 4px solid #4f46e5;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #111827;
+}
+
+/* 4. Info Bar */
+.infoBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0;
+    padding: 20px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.shareButtons, .fontControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.iconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.iconButton:hover { background-color: #f9fafb; }
+.iconButton i { font-size: 20px; color: #6b7280; }
+
+.fontControlButton {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+}
+
+/* 5. Tags Section */
+.tagsSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 60px;
+}
+
+.tagChip {
+    padding: 8px 16px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border-radius: 24px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+.tagChip:hover { background-color: #e5e7eb; }
+
+/* 6. Related Articles */
+.relatedArticles {
+    padding-top: 60px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.relatedTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.relatedGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.relatedCard {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.relatedCard:hover .relatedImage { transform: scale(1.05); }
+
+.relatedImageContainer {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background-color: #f3f4f6;
+}
+
+.relatedImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.relatedCardTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.relatedCardCategory {
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .postTitle { font-size: 2.25rem; }
+    .relatedGrid { grid-template-columns: 1fr; }
+    .metaInfo { flex-direction: column; gap: 16px; }
+}
+/* Simple Post Page Styles */
+.pageWrapper {
+    background-color: #f9fafb;
+    padding: 20px 0;
+}
+
+.main {
+    padding: 40px 0;
+}
+
+.post {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.postHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.postHeader h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1f2937;
+    text-transform: capitalize;
+}
+
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.postImage {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.postImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.postContent {
+    line-height: 1.7;
+    color: #374151;
+    font-size: 1.1rem;
+}
+
+.postContent p {
+    margin-bottom: 1.5em;
+}
+
+.postContent blockquote {
+    margin: 2em 0;
+    padding-left: 20px;
+    border-left: 3px solid #d1d5db;
+    color: #4b5563;
+    font-style: italic;
+}
