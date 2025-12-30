@@ -1,3 +1,371 @@
-.companyDetails {
-    /* Add your styles here */
+/* General Page Styles */
+.profilePage {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Banner Section */
+.banner {
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 120px 20px 40px 20px;
+    width: 100%;
+    border-radius: 0;
+}
+
+.glassmorphism {
+    padding: 0;
+    width: 100%;
+}
+
+.companyHeader {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.companyIdentity {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.companyMeta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.companyRating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.companyRating i {
+    color: #f5b32d;
+}
+
+.favoriteButton {
+    background-color: #eef2ff;
+    color: #4f46e5;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.favoriteButton:hover {
+    background-color: #e0e7ff;
+}
+
+.favoriteButton i {
+    font-size: 1.2rem;
+}
+
+.companyLogo {
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.companyInfo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 5px;
+    text-align: left;
+}
+
+.companyInfo p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Main Grid Layout */
+/* Tab Navigation */
+.tabNavigation {
+    display: flex;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 40px;
+    margin-bottom: 20px;
+}
+
+.tabNavigation a {
+    padding: 15px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    position: relative;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.tabNavigation a:hover {
+    color: #1f2937;
+}
+
+.tabNavigation .activeTab {
+    color: #0066FF;
+    border-bottom: 2px solid #0066FF;
+}
+
+.tabContent {
+    padding: 40px;
+    padding-top: 0;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF, #00C6FF);
+}
+
+/* Left Column */
+.leftColumn .section {
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.contactList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contactList li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.contactList i {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #0066FF;
+}
+
+.contactList a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contactList a:hover {
+    color: #0066FF;
+}
+
+/* Right Column */
+.jobListings, .testimonials {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonialCard {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.testimonialCard blockquote {
+    margin: 0 0 10px;
+    padding: 0;
+    font-style: italic;
+    border-left: 3px solid #0066FF;
+    padding-left: 15px;
+}
+
+.testimonialCard cite {
+    display: block;
+    text-align: right;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .banner {
+        height: 300px;
+        padding: 25px;
+    }
+    .companyInfo h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 20px;
+        height: auto;
+        min-height: 250px;
+    }
+    .glassmorphism {
+        padding: 20px;
+    }
+    .companyHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+    .companyInfo h1 {
+        font-size: 1.8rem;
+    }
+    .tabNavigation {
+        padding: 0 20px;
+    }
+    .tabContent {
+        padding: 20px;
+    }
+}
+/* Skeleton Styles */
+.skeleton {
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+}
+
+.skeleton-title {
+    width: 250px;
+    height: 36px;
+    margin-bottom: 15px;
+}
+
+.skeleton-meta {
+    width: 180px;
+    height: 24px;
+}
+
+.skeleton-tab {
+    width: 120px;
+    height: 48px;
+    margin-right: 20px;
+}
+
+.skeleton-line {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.skeleton-line:last-child {
+    width: 80%;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e5e7eb;
+    }
+    50% {
+        background-color: #f0f2f5;
+    }
+    100% {
+        background-color: #e5e7eb;
+    }
+}
+/* Skeleton Styles */
+.skeleton {
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+}
+
+.skeleton-title {
+    width: 250px;
+    height: 36px;
+    margin-bottom: 15px;
+}
+
+.skeleton-meta {
+    width: 180px;
+    height: 24px;
+}
+
+.skeleton-tab {
+    width: 120px;
+    height: 48px;
+    margin-right: 20px;
+}
+
+.skeleton-line {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.skeleton-line:last-child {
+    width: 80%;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e5e7eb;
+    }
+    50% {
+        background-color: #f0f2f5;
+    }
+    100% {
+        background-color: #e5e7eb;
+    }
 }

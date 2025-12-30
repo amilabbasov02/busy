@@ -58,6 +58,12 @@ const CompanySidebar = () => {
                     Abunəliyim
                   </Link>
                 </li>
+                <li className={pathname === '/dashboard/transactions' ? 'active' : ''}>
+                  <Link href="/dashboard/transactions">
+                    <i className="icon-material-outline-receipt"></i>
+                    Tranzaksiya tarixçəsi
+                  </Link>
+                </li>
                 <li className={pathname === '/dashboard/reviews' ? 'active' : ''}>
                   <Link href="/dashboard/reviews">
                     <i className="icon-material-outline-rate-review"></i>
@@ -78,6 +84,7 @@ const CompanySidebar = () => {
                 </li>
                 <li>
                   <a href="#" onClick={() => {
+                    // TODO: wire to AuthContext.logout (current layout still has legacy logout form)
                     const form = document.getElementById('logoutform');
                     if (form) {
                       (form as HTMLFormElement).submit();

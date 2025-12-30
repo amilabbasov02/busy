@@ -1,0 +1,73 @@
+.transaction-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transaction-history-table th,
+.transaction-history-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border: none;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+.transaction-history-table thead th {
+    background-color: #f0ebff;
+    font-weight: 600;
+    color: #555;
+}
+
+.transaction-history-table tbody tr {
+     border-bottom: 1px solid #f0f0f0;
+}
+
+.transaction-history-table tbody tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
+
+.transaction-history-table tbody tr:hover {
+    background-color: #f0ebff;
+}
+
+.transaction-history-table td .order-id {
+    color: #2a41e8;
+    font-weight: 600;
+}
+
+.transaction-history-table td .amount {
+    color: #2a41e8;
+    font-weight: 600;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.status.pending {
+    color: #d63384;
+    background-color: #fce4ec;
+}
+
+.status.successful {
+    color: #198754;
+    background-color: #d1e7dd;
+}
+
+.back-button {
+    background-color: #2a41e8;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #2336c3;
+}

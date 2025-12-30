@@ -145,7 +145,7 @@ const CreateJobPage = () => {
                                 </Link>
                             </li>
                             <li>
-                                <a href="https://busy.az/dashboard/profile/settings">
+                                <a href="/dashboard/profile/settings">
                                     <i className="icon-material-outline-supervisor-account"></i>
                                     Profil ayarları
                                 </a>
@@ -184,10 +184,10 @@ const CreateJobPage = () => {
             </nav>
             <nav id="breadcrumbs" className="dark d-none">
               <ul>
-                <li><a href="https://busy.az">job.home</a></li>
-                <li><a href="https://busy.az/dashboard">job.dashboard</a></li>
-                <li><a href="https://busy.az/dashboard/jobs">job.manage job.jobs</a></li>
-                <li><a href="https://busy.az/dashboard/jobs/create">Vakansiya əlavə et</a></li>
+                <li><a href="/">job.home</a></li>
+                <li><a href="/dashboard">job.dashboard</a></li>
+                <li><a href="/dashboard/jobs">job.manage job.jobs</a></li>
+                <li><a href="/dashboard/jobs/create">Vakansiya əlavə et</a></li>
               </ul>
             </nav>
           </div>

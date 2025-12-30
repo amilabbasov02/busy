@@ -161,7 +161,7 @@ const EditJobPage = ({ params }: any) => {
                                 </Link>
                             </li>
                             <li>
-                                <a href="https://busy.az/dashboard/profile/settings">
+                                <a href="/dashboard/profile/settings">
                                     <i className="icon-material-outline-supervisor-account"></i>
                                     Profil ayarları
                                 </a>

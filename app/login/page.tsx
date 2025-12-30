@@ -1,25 +1,40 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
+import { signIn } from 'next-auth/react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
-  const { login } = useAuth();
+  const { loginLegacy, loginWithApi } = useAuth();
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (email === 'admin@azerforum.com' && password === 'admin123') {
-      login('company');
-      router.push('/dashboard/jobs');
-    } else if (email === 'user@example.com' && password === 'password123') {
-      login('user');
+    setIsSubmitting(true);
+    try {
+      // Real API login
+      await loginWithApi(email, password);
       router.push('/dashboard/profile/settings');
-    } else {
-      alert('E-poçt və ya parol yanlışdır.');
+    } catch (e: any) {
+      // Legacy fallback (mövcud test istifadəçiləri üçün)
+      if (email === 'admin@azerforum.com' && password === 'admin123') {
+        loginLegacy('company');
+        router.push('/dashboard/jobs');
+        return;
+      }
+      if (email === 'user@example.com' && password === 'password123') {
+        loginLegacy('user');
+        router.push('/dashboard/profile/settings');
+        return;
+      }
+
+      alert(e?.message ?? 'E-poçt və ya parol yanlışdır.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -109,11 +124,18 @@ const LoginPage = () => {
                 <Link href="/password/reset" className="forgot-password">Parolun yaddan çıxıb?</Link>
                 
                 {/* Button */}
-                <button className="button loginButton full-width button-sliding-icon ripple-effect margin-top-10" type="submit">
-                  Daxil ol <i className="icon-material-outline-arrow-right-alt"></i>
+                <button
+                  className="button loginButton full-width button-sliding-icon ripple-effect margin-top-10"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Gözləyin...' : 'Daxil ol'} <i className="icon-material-outline-arrow-right-alt"></i>
                 </button>
               </form>
 
+              {/* Social Login */}
+              <div className="social-login-separator"><span>və ya</span></div>
+              <div id="google-signin-button"></div>
             </div>
           </div>
         </div>
@@ -123,4 +145,44 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const LoginPageWrapper = () => {
+  const router = useRouter();
+
+  const handleGoogleSignIn = async (response: any) => {
+    const res = await signIn('credentials', {
+      credential: response.credential,
+      redirect: false,
+    });
+
+    if (res?.ok) {
+      router.push('/'); // Uğurlu girişdən sonra yönləndirmə
+    } else {
+      // Xəta baş verdikdə
+      console.error("Sign in failed:", res);
+    }
+  };
+
+  useEffect(() => {
+    if (window.google) {
+      window.google.accounts.id.initialize({
+        client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string,
+        callback: handleGoogleSignIn,
+      });
+      window.google.accounts.id.renderButton(
+        document.getElementById("google-signin-button"),
+        { theme: "outline", size: "large", type: 'standard', text: 'signin_with' }
+      );
+    }
+  }, []);
+
+  return <LoginPage />;
+}
+
+// Add this to your global types if it doesn't exist
+declare global {
+  interface Window {
+    google: any;
+  }
+}
+
+export default LoginPageWrapper;

@@ -1,0 +1,47 @@
+# API Calls Inventory
+
+Outbound HTTP calls found across the app (method, URL pattern, variance, scope).
+
+- `app/page.tsx:95` — `GET https://api.busy.az/api/vacancies?page={page}&per_page=5&employment_type[]=...&is_prime=...&minimum_salary=...` — varies by pagination + vacancy filters (employment_type, salary) — public/no auth.
+- `app/page.tsx:183` — `GET https://api.busy.az/api/faq` — no query/header variance — public.
+- `app/page.tsx:197` — `GET https://api.busy.az/api/filter/main-categories` — no variance — public.
+- `app/page.tsx:198` — `GET https://api.busy.az/api/filter/employment-types` — no variance — public.
+- `app/page.tsx:199` — `GET https://api.busy.az/api/filter/cities` — no variance — public.
+- `app/page.tsx:200` — `GET https://api.busy.az/api/filter/professions?per_page=30` — varies by query (per_page fixed) — public.
+- `app/tag/[slug]/page.tsx:31` — `GET https://api.busy.az/api/posts/tag/{slug}?per_page=20&page={page}` — varies by slug + page — public.
+- `app/jobseekers_v2/[id]/page.tsx:103` — `GET https://api.busy.az/api/jobseeker/{id}` — varies by path id — public (no auth headers used).
+- `app/vacancies/[id]/[slug]/page.tsx:69` — `GET https://api.busy.az/api/vacancy/{id}/{slug}` — varies by path params — public.
+- `app/vacancies/[id]/[slug]/page.tsx:90` — `GET https://api.busy.az/api/vacancies?profession_id={id}&limit=5` — varies by profession_id — public.
+- `app/vacancies/page.tsx:104` — `GET https://api.busy.az/api/vacancies?{page,per_page=40,employment_type[],categories[],professions[],cities[],experiences[],minimum_salary,maximum_salary,keyword,location}` — varies by pagination + many filters — public.
+- `app/vacancies/page.tsx:195` — `GET https://api.busy.az/api/filter/professions?page={page}&search={term}&per_page=25` — varies by page/search — public.
+- `app/vacancies/page.tsx:225` — `GET https://api.busy.az/api/filter/cities?page={page}&search={term}&per_page=25` — varies by page/search — public.
+- `app/jobseekers_v2/page.tsx:113` — `GET https://api.busy.az/api/jobseekers?{page,keyword,minimum_age,maximum_age,gender,photo,cities[],professions[],skills[]}` — varies by pagination + filter params — public.
+- `app/jobseekers_v2/page.tsx:113` — `GET https://api.busy.az/api/filter/cities?page={page}&search={term}` (searchCities) — varies by search term + page — public.
+- `app/jobseekers_v2/page.tsx:150` — `GET https://api.busy.az/api/filter/cities?page={page}[&search={term}]` (loadMoreCities) — varies by paging/search — public.
+- `app/jobseekers_v2/page.tsx:185` — `GET https://api.busy.az/api/filter/professions?page={page}&search={term}` (searchProfessions) — varies by search/paging — public.
+- `app/jobseekers_v2/page.tsx:219` — `GET https://api.busy.az/api/filter/professions?page={page}[&search={term}]` (loadMoreProfessions) — varies by paging/search — public.
+- `app/jobseekers_v2/page.tsx:260` — `GET https://api.busy.az/api/filter/skills?page={page}&search={term}` (searchSkills) — varies by search/paging — public.
+- `app/jobseekers_v2/page.tsx:293` — `GET https://api.busy.az/api/filter/skills?page={page}[&search={term}]` (loadMoreSkills) — varies by paging/search — public.
+- `app/jobseekers_v2/page.tsx:330` — `GET https://api.busy.az/api/filter/cities?page=1` — page fixed — public.
+- `app/jobseekers_v2/page.tsx:352` — `GET https://api.busy.az/api/filter/professions?page=1` — page fixed — public.
+- `app/jobseekers_v2/page.tsx:378` — `GET https://api.busy.az/api/filter/skills?page=1` — page fixed — public.
+- `app/jobseekers_v2/page.tsx:410` — `GET https://api.busy.az/api/jobseekers?{page,keyword,minimum_age,maximum_age,gender,photo,cities[],professions[],skills[]}` (fetchJobseekers, uses last built URL) — varies by pagination + filters — public.
+- `app/blog/page.tsx:19` — `GET https://api.busy.az/api/posts?per_page=20&page={page}[&search={q}]` — varies by page/search — public, cache: 'no-store' specified.
+- `app/category/[slug]/page.tsx:66` — `GET https://api.busy.az/api/vacancies?{page,per_page=40,categories[]=slugMappedId}` — varies by page/category filter — public.
+- `app/category/[slug]/page.tsx:117` — `GET https://api.busy.az/api/filter/main-categories` — no variance — public.
+- `app/blog/[slug]/page.tsx:65` — `GET https://api.busy.az/api/posts/{slug}` — varies by slug — public.
+- `app/categories/page.tsx:18` — `GET https://api.busy.az/api/filter/main-categories` — no variance — public.
+- `app/professions/page.tsx:10` — `GET https://api.busy.az/api/professions?index={index}&page={page}&perPage={perPage}&search={search}` — varies by index/page/search — public.
+- `app/professions/page.tsx:18` — `GET https://api.busy.az/api/professions/search?q={query}` — varies by query — public.
+- `app/professions/[slug]/page.tsx:19` — `GET https://api.busy.az/api/professions/{slug}/vacancies?page={page}&perPage={perPage}` — varies by slug/page/perPage — public.
+- `app/blog/tag/[slug]/page.tsx:31` — `GET https://api.busy.az/api/posts/tag/{slug}?per_page=20&page={page}` — varies by slug/page — public.
+- `app/components/NewAdvancedSearchFilters.tsx:89` — `GET https://api.busy.az/api/filter/categories` — no variance — public.
+- `app/components/NewAdvancedSearchFilters.tsx:121` — `GET https://api.busy.az/api/filter/employment-types?page={page}&search={term}&per_page=25` — varies by paging/search — public.
+- `app/components/NewAdvancedSearchFilters.tsx:157` — `GET https://api.busy.az/api/filter/experiences?page={page}&search={term}&per_page=25` — varies by paging/search — public.
+- `app/components/NewAdvancedSearchFilters.tsx:193` — `GET https://api.busy.az/api/filter/professions?page={page}&search={term}&per_page=25` — varies by paging/search — public.
+- `app/components/NewAdvancedSearchFilters.tsx:238` — `GET https://api.busy.az/api/filter/cities?page={page}&search={term}&per_page=25` — varies by paging/search — public.
+- `app/company/[slug]/vacancies/page.tsx:25` — `GET https://api.busy.az/api/companies/{slug}/vacancies?page={page}` — varies by slug/page — public.
+- `app/company/[slug]/layout.tsx:10` — `GET https://api.busy.az/api/companies/{slug}/detail` — varies by slug — public.
+- `app/blog/tag/[slug]/page.tsx:31` duplicates tag fetch above (blog tag variant) — same variance — public.
+- `app/redux/slices/companySlice.ts:34` — `GET https://api.busy.az/api/companies?index={index}&page={page}&perPage=24` — varies by index/page — public (axios).
+- `app/redux/slices/companySlice.ts:53` — `GET https://api.busy.az/api/companies/search?q={query}` — varies by query — public (axios).

@@ -282,3 +282,11 @@
     color: #4b5563;
     font-style: italic;
 }
+.articleContent img {
+    max-height: 800px;
+    padding: 10px 0;
+    display: block; /* To apply padding and prevent inline behavior */
+    margin: 0 auto; /* Center the image */
+    max-width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+}

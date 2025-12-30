@@ -17,8 +17,9 @@ const CompanyProfileV2 = () => {
                     <Image
                         src="/images/home-background-02.jpg"
                         alt="Company Banner"
-                        fill
-                        style={{objectFit: 'cover'}}
+                        layout="fill"
+                        objectFit="cover"
+                        quality={100}
                     />
                     <div className={styles.glassmorphism}>
                         <div className={styles.companyHeader}>
@@ -31,7 +32,7 @@ const CompanyProfileV2 = () => {
                                 />
                             </div>
                             <div className={styles.companyInfo}>
-                                <h1>{slug.toString().replace(/-/g, ' ')}</h1>
+                                <h1>{slug.toString().replace(/_/g, ' ').replace(/-/g, ' ').replace('v2', ' V2')}</h1>
                                 <p>Engineering the future, one line of code at a time.</p>
                             </div>
                         </div>

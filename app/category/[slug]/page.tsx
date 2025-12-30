@@ -1,175 +1,301 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Script from 'next/script';
+import { useSearchParams, useParams } from 'next/navigation';
+import NewAdvancedSearchFilters from '../../components/NewAdvancedSearchFilters';
+import '../../vacancies/page.css';
 
-declare global {
-    interface Window {
-        jQuery: any;
-    }
+interface Vacancy {
+    id: number;
+    title: string;
+    slug: string;
+    company: {
+        id: number;
+        title: string;
+        logo: string;
+        slug: string;
+    };
+    location: string;
+    time: string;
+    logo: string;
+    isPremium: boolean;
+    employmentType: string;
+    category: string;
+    salary: number;
+    salaryType: 'net' | 'gross';
+    jobField: string;
+    deadline: string;
+    is_prime: number;
 }
 
-const CategoryPage = () => {
-    const [scriptsLoaded, setScriptsLoaded] = useState(false);
+const timeAgo = (dateString: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    let interval = seconds / 31536000;
+    if (interval > 1) return Math.floor(interval) + " il əvvəl";
+    interval = seconds / 2592000;
+    if (interval > 1) return Math.floor(interval) + " ay əvvəl";
+    interval = seconds / 86400;
+    if (interval > 1) return Math.floor(interval) + " gün əvvəl";
+    interval = seconds / 3600;
+    if (interval > 1) return Math.floor(interval) + " saat əvvəl";
+    interval = seconds / 60;
+    if (interval > 1) return Math.floor(interval) + " dəqiqə əvvəl";
+    return "bir neçə saniyə əvvəl";
+};
+
+const generateSlug = (text: string) => {
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+};
+
+const fetchVacancies = async (page: number, filters: any): Promise<{ vacancies: Vacancy[], total: number }> => {
+    let query = `page=${page}&per_page=40`;
+    if (filters.categories?.length > 0) {
+        query += `&categories[]=${filters.categories[0]}`;
+    }
+    
+    console.log(`FETCHING URL: /api/bff/api/vacancies?${query}`);
+    const response = await fetch(`/api/bff/api/vacancies?${query}`);
+    const data = await response.json();
+    console.log('API RESPONSE:', data);
+
+    if (!data || !Array.isArray(data.vacancies)) {
+        return { vacancies: [], total: 0 };
+    }
+
+    const vacancies = data.vacancies.map((v: any) => ({
+        id: v.id,
+        slug: v.slug || generateSlug(v.job_title),
+        title: v.job_title,
+        logo: (v.company && typeof v.company.logo === 'string') ? (v.company.logo.startsWith('http') ? v.company.logo : `https://busy.az${v.company.logo}`) : '/images/company-logo-placeholder.png',
+        company: v.company || { id: v.id, title: 'Şirkət məlumatı yoxdur', logo: '/images/company-logo-placeholder.png', slug: '#' },
+        location: v.city_rels?.[0]?.city?.title?.az || 'Məkan qeyd edilməyib',
+        time: timeAgo(v.created_at),
+        isPremium: v.is_prime === 1,
+        deadline: v.published || v.created_at || new Date().toISOString(),
+        is_prime: v.is_prime,
+    }));
+    
+    vacancies.sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    return { vacancies, total: data.count || 0 };
+};
+
+function CategoryVacanciesContent() {
+    const [vacancies, setVacancies] = useState<Vacancy[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [isFilterOpen, setIsFilterOpen] = useState(true);
+    const [appliedFilters, setAppliedFilters] = useState<any>(null);
+    const [totalPages, setTotalPages] = useState(0);
+    const [categoryName, setCategoryName] = useState('');
+    const [initialCategoryFilter, setInitialCategoryFilter] = useState<any>(null);
+    const searchParams = useSearchParams();
+    const params = useParams();
+    const page = searchParams.get('page') || '1';
+    const currentPage = parseInt(page, 10);
+    const slug = params.slug as string;
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
-        if (window.jQuery && (window.jQuery as any).fn.select2) {
-            (window.jQuery('.select2') as any).select2();
-        }
+        setIsClient(true);
     }, []);
 
-    // Mock data for vacancies in this category
-    const vacancies = [
-        { id: 169763, title: 'Sürücü', company: 'Apar (Bike-Sharing Startup)', link: '/vacancies/surucu', date: 'bugün', salary: '-' },
-        { id: 169781, title: 'Ofis meneceri', company: 'Softech', link: '/vacancies/ofis-meneceri', date: 'bugün', salary: '-' },
-        { id: 169531, title: 'Administrativ Assistant', company: 'Konsis', link: '/vacancies/administrativ-assistant', date: '3 gün əvvəl', salary: '-' },
-        { id: 169608, title: 'Ofis meneceri', company: 'Af Holding', link: '/vacancies/ofis-meneceri-af-holding', date: '3 gün əvvəl', salary: '-' },
-        { id: 169621, title: 'Resepşn (Gündüz Növbəsi)', company: 'Maestro Boutique Hotel', link: '/vacancies/resepsn-gunduz-novbesi', date: '3 gün əvvəl', salary: '500 -' },
-        { id: 169632, title: 'Xadimə', company: 'Kaspi Təhsil Şirkəti', link: '/vacancies/xadime', date: '3 gün əvvəl', salary: '-' },
-        { id: 169649, title: 'Personal Assistant', company: 'LV Caspian Ltd', link: '/vacancies/personal-assistant', date: '3 gün əvvəl', salary: '1200 - 1500' },
-        { id: 169664, title: 'Call Center Operator (Remote Job)', company: 'Fusion Call', link: '/vacancies/call-center-operator-remote-job', date: '3 gün əvvəl', salary: '-' },
-        { id: 169688, title: 'Operator call center', company: 'Azericard', link: '/vacancies/operator-call-center', date: '3 gün əvvəl', salary: '-' },
-        { id: 169513, title: 'Reception', company: 'İMC1', link: '/vacancies/reception', date: '4 gün əvvəl', salary: '1000 - 1500' },
-    ];
+    useEffect(() => {
+        const initializeCategoryAndFetch = async () => {
+            if (!slug) return;
+            setLoading(true);
+
+            try {
+                console.log(`Fetching categories for slug: ${slug}`);
+                const catResponse = await fetch(`/api/bff/api/filter/main-categories`);
+                const catData = await catResponse.json();
+                console.log("Categories API response:", catData);
+
+                let currentCategory = null;
+                if (catData && Array.isArray(catData.data)) {
+                    currentCategory = catData.data.find((cat: any) => cat.slug.az === slug);
+                    console.log("Found category:", currentCategory);
+                }
+
+                if (currentCategory) {
+                    setCategoryName(`${currentCategory.title.az} sahəsinə aid iş elanları`);
+                    const initialFilter = { categories: [currentCategory.id] };
+                    setInitialCategoryFilter(initialFilter);
+                    
+                    const result = await fetchVacancies(currentPage, initialFilter);
+                    setVacancies(result.vacancies);
+                    setTotalPages(Math.ceil(result.total / 40));
+                } else {
+                    setCategoryName("Kateqoriya tapılmadı");
+                }
+            } catch (error) {
+                console.error("Error during initialization or fetch:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        initializeCategoryAndFetch();
+    }, [slug, currentPage]);
+
+    const handleSearch = (filters: any) => {
+        setAppliedFilters(filters);
+    };
 
     return (
         <>
-            <Head>
-                <title>İnzibati (administrativ) işlər sahəsinə aid iş elanları</title>
-                <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+           <Head>
+                <title>{categoryName ? categoryName : 'Vakansiyalar'}</title>
             </Head>
-            <Script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossOrigin="anonymous" strategy="afterInteractive" />
-            <Script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
-            <Script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" strategy="afterInteractive" />
-            <div id="wrapper" style={{ overflowY: 'hidden' }}>
-                <div className="clearfix"></div>
-                <div id="titlebar" className="gradient">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <h2>İnzibati (administrativ) işlər sahəsinə aid iş elanları və son vakansiyalar</h2>
-                            </div>
+            <div id="titlebar" className="gradient">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h2>{categoryName}</h2>
                         </div>
                     </div>
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-3 col-lg-4">
-                            <div className="sidebar-container" id="form">
-                                <form method="GET" action="/category/inzibati-administrativ-isler">
-                                    <div className="sidebar-widget">
-                                        <h3>Alt kateqoriyalar</h3>
-                                        <select className="select2" data-placeholder="seçilməyib">
-                                            <option></option>
-                                            <option>Call Center əməkdaşı</option>
-                                            <option>Təmizlikçi xadimə</option>
-                                            <option>Kuryer</option>
-                                            <option>Sürücü</option>
-                                            <option>Ofis menecer</option>
-                                            <option>Şəxsi katib</option>
-                                            <option>Resepşen</option>
-                                        </select>
-                                    </div>
+            </div>
+            <div className="container page-content">
+                <div className={`main-layout ${!isFilterOpen ? 'sidebar-closed' : ''}`}>
+                    <div className="filter-sidebar">
+                        <button className="filter-toggle-button" onClick={() => setIsFilterOpen(!isFilterOpen)}>
+                            {isFilterOpen ? <i className="icon-feather-x"></i> : <i className="icon-feather-filter"></i>}
+                        </button>
+                        <NewAdvancedSearchFilters onSearch={handleSearch} layout="vertical" initialFilters={initialCategoryFilter} />
+                    </div>
+                    <div className="job-listings">
+                        {loading ? <p>Yüklənir...</p> : vacancies.map(vacancy => {
+                            let isExpired = false;
+                            if (isClient) {
+                                const deadlineDate = new Date(vacancy.deadline);
+                                const now = new Date();
+                                const daysDifference = (now.getTime() - deadlineDate.getTime()) / (1000 * 3600 * 24);
+                                isExpired = daysDifference > 30;
+                            }
 
-                                    <div className="sidebar-widget">
-                                        <h3>Açar-sözlər</h3>
-                                        <select className="select2" data-placeholder="seçilməyib">
-                                            <option></option>
-                                            {/* Options */}
-                                        </select>
-                                    </div>
-
-                                    <div className="sidebar-widget">
-                                        <h3>Ərazi</h3>
-                                        <select className="select2" data-placeholder="seçilməyib">
-                                            <option></option>
-                                            {/* Options */}
-                                        </select>
-                                    </div>
-
-                                    <div className="sidebar-widget">
-                                        <h3>Məşğulluq növü</h3>
-                                        <div className="tags-container">
-                                            <div className="tag">
-                                                <input type="checkbox" id="type-1" />
-                                                <label htmlFor="type-1">Tam ştat (full time)</label>
-                                            </div>
-                                            <div className="tag">
-                                                <input type="checkbox" id="type-2" />
-                                                <label htmlFor="type-2">Yarımştat (part time)</label>
-                                            </div>
-                                            <div className="tag">
-                                                <input type="checkbox" id="type-3" />
-                                                <label htmlFor="type-3">Layihə/Müvəqqəti</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="sidebar-widget">
-                                        <div className="clearfix"></div>
-                                        <div className="salary margin-top-20">
-                                            <h3>Maaş</h3>
-                                            <input type="number" id="minimum" name="minimum_salary" placeholder="Minimum maaş" />
-                                            <br />
-                                            <input type="number" id="maximum" name="maximum_salary" placeholder="Maksimum maaş" />
-                                        </div>
-                                    </div>
-                                    <div className="clearfix"></div>
-                                    <button type="submit" className="button ripple-effect  button-sliding-icon">
-                                        Filterlərmək
-                                        <i className="icon-feather-check"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div className="col-xl-9 col-lg-8 content-left-offset">
-                            <div className="tasks-list-container margin-top-35">
-                                {vacancies.map(job => (
-                                    <div className="task-listing" key={job.id}>
-                                        <div className="task-listing-details">
-                                            <div className="task-listing-description">
-                                                <h3 className="task-listing-title"><Link href={job.link}>{job.title}</Link></h3>
-                                                <ul className="task-icons">
-                                                    <li>
-                                                        <Link href={`/company/${job.company.toLowerCase().replace(/\s+/g, '-')}`} className="GrayToBlue">
-                                                            <i className="icon-material-outline-business"></i> {job.company}
-                                                        </Link>
-                                                    </li>
-                                                    <li><i className="icon-material-outline-access-time"></i>{job.date}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div className="task-listing-bid">
-                                            <div className="task-listing-bid-inner">
-                                                <div className="task-offers">
-                                                    <strong>{job.salary}</strong>
+                            return (
+                                <div key={vacancy.id} className={`job-card ${vacancy.isPremium ? 'premium' : ''} ${isExpired ? 'expired-vacancy' : ''}`}>
+                                    {vacancy.isPremium && <div className="premium-badge">Premium</div>}
+                                    <div className="job-card-content">
+                                        <div className="job-card-header">
+                                            <img src={vacancy.logo} alt={`${vacancy.company.title} logo`} />
+                                            <div className="job-card-title">
+                                                <h3><Link href={vacancy.slug ? `/vacancies/${vacancy.id}/${vacancy.slug}` : '#'}>{vacancy.title}</Link></h3>
+                                                <div className="job-card-meta">
+                                                    <p>{vacancy.company.title}</p>
+                                                    <span><i className="icon-material-outline-location-on"></i> {vacancy.location}</span>
+                                                    <span><i className="icon-material-outline-access-time"></i> {vacancy.time}</span>
                                                 </div>
-                                                <Link href={job.link} className="button button-sliding-icon ripple-effect">
-                                                    Ətraflı <i className="icon-material-outline-arrow-right-alt"></i>
-                                                </Link>
                                             </div>
                                         </div>
                                     </div>
-                                ))}
-                                <div className="clearfix"></div>
-                                <div className="pagination-container margin-top-30 margin-bottom-60">
-                                    <nav className="pagination">
-                                        <ul>
-                                            <li className="pagination-arrow"><a href="#" className="ripple-effect"><i className="icon-material-outline-keyboard-arrow-left"></i></a></li>
-                                            <li><a href="#" className="current-page ripple-effect">1</a></li>
-                                            <li><a href="#" className="ripple-effect">2</a></li>
-                                            <li className="pagination-arrow"><a href="#" className="ripple-effect"><i className="icon-material-outline-keyboard-arrow-right"></i></a></li>
-                                        </ul>
-                                    </nav>
+                                    <div className="job-card-buttons">
+                                        <Link href={vacancy.slug ? `/vacancies/${vacancy.id}/${vacancy.slug}` : '#'} className="button button-sliding-icon">
+                                            {isExpired ? 'Daxil ol' : 'Müraciət et'} <i className="icon-material-outline-arrow-right-alt"></i>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
+                            );
+                        })}
+                        <div className="pagination-container">
+                            <nav className="pagination">
+                                <ul>
+                                    {currentPage > 1 && (
+                                        <li className="pagination-arrow">
+                                            <Link href={`/category/${slug}?page=${currentPage - 1}`}>
+                                                <i className="icon-material-outline-keyboard-arrow-left"></i>
+                                            </Link>
+                                        </li>
+                                    )}
+                                    {getPaginationItems(currentPage, totalPages).map((item, index) => {
+                                        if (typeof item === 'number') {
+                                            return (
+                                                <li key={item}>
+                                                    <Link href={`/category/${slug}?page=${item}`} className={currentPage === item ? 'current-page' : ''}>
+                                                        {item}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        }
+                                        return <li key={`dots-${index}`} className="pagination-dots"><span>...</span></li>;
+                                    })}
+                                    {currentPage < totalPages && (
+                                        <li className="pagination-arrow">
+                                            <Link href={`/category/${slug}?page=${currentPage + 1}`}>
+                                                <i className="icon-material-outline-keyboard-arrow-right"></i>
+                                            </Link>
+                                        </li>
+                                    )}
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </>
     );
+}
+
+const getPaginationItems = (currentPage: number, totalPages: number) => {
+    const pageNeighbours = 2;
+    const totalNumbers = (pageNeighbours * 2) + 3;
+    const totalBlocks = totalNumbers + 2;
+
+    if (totalPages > totalBlocks) {
+        const startPage = Math.max(2, currentPage - pageNeighbours);
+        const endPage = Math.min(totalPages - 1, currentPage + pageNeighbours);
+        let pages: (number | string)[] = range(startPage, endPage);
+
+        const hasLeftSpill = startPage > 2;
+        const hasRightSpill = (totalPages - endPage) > 1;
+        const spillOffset = totalNumbers - (pages.length + 1);
+
+        switch (true) {
+            case (hasLeftSpill && !hasRightSpill): {
+                const extraPages = range(startPage - spillOffset, startPage - 1);
+                pages = ["...", ...extraPages, ...pages];
+                break;
+            }
+            case (!hasLeftSpill && hasRightSpill): {
+                const extraPages = range(endPage + 1, endPage + spillOffset);
+                pages = [...pages, ...extraPages, "..."];
+                break;
+            }
+            case (hasLeftSpill && hasRightSpill):
+            default: {
+                pages = ["...", ...pages, "..."];
+                break;
+            }
+        }
+        return [1, ...pages, totalPages];
+    }
+    return range(1, totalPages);
 };
 
-export default CategoryPage;
+const range = (from: number, to: number, step = 1) => {
+    let i = from;
+    const range = [];
+    while (i <= to) {
+        range.push(i);
+        i += step;
+    }
+    return range;
+};
+
+export default function CategoryPage() {
+  return (
+      <div className="job-search-portal">
+        <Suspense fallback={<div className="container"><p>Yüklənir...</p></div>}>
+            <CategoryVacanciesContent />
+        </Suspense>
+      </div>
+  );
+}

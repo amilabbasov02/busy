@@ -2,3 +2,51 @@
 .bootstrap-select.btn-group .dropdown-menu li a span.text {
   color: #000 !important;
 }
+
+input:focus, input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=text]:focus, textarea:focus {
+    color: grey;
+    transition: box-shadow .2s!important;
+    opacity: 1;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .12) !important;
+}
+
+.filter-buttons .search-button {
+    background-color: #3b82f6 !important;
+    color: #fff !important;
+    border: 1px solid #3b82f6 !important;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+.filter-buttons .clear-button {
+    background-color: #f0f0f0 !important;
+    color: #555 !important;
+    border: 1px solid #ccc !important;
+    transition: background-color 0.2s ease;
+}
+.filter-buttons .clear-button:hover {
+    background-color: #e0e0e0 !important;
+}
+.filter-buttons .search-button:hover {
+    background-color: #2563eb !important;
+}
+.filter-widget {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.filter-widget details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.checkbox-list-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.categories-wrapper {
+    max-height: 283px;
+}

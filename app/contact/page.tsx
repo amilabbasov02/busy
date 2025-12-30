@@ -38,35 +38,22 @@ const ContactPage = () => {
           </div>
 
           <div className="col-xl-8 col-lg-8 offset-xl-2 offset-lg-2">
-            <section id="contact" className="margin-bottom-60">
-              <h3 className="headline margin-top-15 margin-bottom-35">Suallarınız varsa bizimlə əlaqə saxlayın</h3>
-              <form method="post" name="contactform" id="contactform" autoComplete="on">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="input-with-icon-left">
-                      <input className="with-border" name="full_name" type="text" id="name" placeholder="Adınız" required />
-                      <i className="icon-material-outline-account-circle"></i>
-                    </div>
+            <section id="contact" className="contact-form-from-image">
+              <h3>Bizə hər hansı əməkdaşlıq təklifiniz varsa, çəkinməyin</h3>
+              <p className="contact-form-subtitle">Aşağıdakı formanı doldurun, sizə 24 saat ərzində geri zəng edəcəyik.</p>
+              <form>
+                  <div className="input-container">
+                      <input type="text" placeholder="Ad Soyad" />
                   </div>
-                  <div className="col-md-6">
-                    <div className="input-with-icon-left">
-                      <input className="with-border" name="email" type="email" id="email" placeholder="Email ünvanınız" required />
-                      <i className="icon-material-outline-email"></i>
-                    </div>
+                  <div className="input-container">
+                      <input type="email" placeholder="Email" />
                   </div>
-                </div>
-                <div className="input-with-icon-left">
-                  <input className="with-border" name="subject" type="text" id="subject" placeholder="Mövzu" required />
-                  <i className="icon-material-outline-assignment"></i>
-                </div>
-                <div>
-                  <textarea className="with-border" name="message" cols={40} rows={5} id="comments" placeholder="Mesajınız" required></textarea>
-                </div>
-                <button type="submit" className="button ripple-effect button-sliding-icon margin-bottom-40" style={{ float: 'right' }}>
-                  Göndər
-                  <i className="icon-feather-check"></i>
-                </button>
+                  <div className="input-container">
+                      <input type="tel" placeholder="50 555 55 55" />
+                  </div>
+                  <button type="submit" className="button">Göndər</button>
               </form>
+              <p className="contact-form-footer-text">Peşəkarlar ilə işləməyə <a href="#">HƏ</a> de</p>
             </section>
           </div>
         </div>

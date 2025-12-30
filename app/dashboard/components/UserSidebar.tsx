@@ -49,6 +49,12 @@ const UserSidebar = () => {
                     Gözaltılar
                   </Link>
                 </li>
+                <li className={pathname === '/dashboard/job-alerts' ? 'active' : ''}>
+                  <Link href="/dashboard/job-alerts">
+                    <i className="icon-material-outline-notifications"></i>
+                    İş bildirişləri
+                  </Link>
+                </li>
                 <li className={pathname === '/dashboard/reviews' ? 'active' : ''}>
                   <Link href="/dashboard/reviews">
                     <i className="icon-material-outline-rate-review"></i>

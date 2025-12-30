@@ -1,0 +1,103 @@
+/* Pricing Table Styles */
+.pricing-table-container {
+    width: 100%;
+    margin: 50px 0;
+}
+
+.pricing-table-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pricing-features-list {
+    flex: 1;
+    max-width: 250px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.pricing-features-list .feature-header {
+    padding: 20px;
+    min-height: 160px; /* Space for package headers */
+}
+
+.pricing-features-list .feature {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+.package-column {
+    flex: 1;
+    max-width: 220px;
+    text-align: center;
+}
+
+.package-column:not(:last-child) {
+    border-right: 1px solid #e0e0e0;
+}
+
+.package-header {
+    padding: 20px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.package-header h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+}
+
+.package-header .price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.package-column .feature-cell {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+    min-height: 57px; /* Align with feature cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.package-column .feature-cell .tick {
+    color: #4A00E0; /* Purple color */
+    font-size: 24px;
+}
+
+.package-column .button {
+    margin-top: 20px;
+    background-color: #4A00E0;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.package-column .button:hover {
+    background-color: #3b00b3;
+}
+
+.package-column .button.secondary {
+    background-color: transparent;
+    color: #4A00E0 !important;
+    border: 1px solid #4A00E0;
+}
+
+.package-column .button.secondary:hover {
+    background-color: #f4f0ff;
+}

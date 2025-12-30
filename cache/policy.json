@@ -1,0 +1,256 @@
+[
+  {
+    "method": "GET",
+    "pattern": "/api/faq",
+    "cacheable": true,
+    "ttlSeconds": 86400,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["faq"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/main-categories",
+    "cacheable": true,
+    "ttlSeconds": 43200,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["filter:main-categories"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/categories",
+    "cacheable": true,
+    "ttlSeconds": 43200,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["filter:categories"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/cities",
+    "cacheable": true,
+    "ttlSeconds": 43200,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["filter:cities"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/cities",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": true },
+    "tags": ["filter:cities:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/employment-types",
+    "cacheable": true,
+    "ttlSeconds": 43200,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["filter:employment-types"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/employment-types",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": true },
+    "tags": ["filter:employment-types:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/experiences",
+    "cacheable": true,
+    "ttlSeconds": 43200,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["filter:experiences"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/experiences",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": true },
+    "tags": ["filter:experiences:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/professions",
+    "cacheable": true,
+    "ttlSeconds": 21600,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["filter:professions"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/professions",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": true },
+    "tags": ["filter:professions:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/skills",
+    "cacheable": true,
+    "ttlSeconds": 21600,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["filter:skills"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/filter/skills",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": true },
+    "tags": ["filter:skills:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/vacancies",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["vacancies:list"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/vacancy/:id/:slug",
+    "cacheable": true,
+    "ttlSeconds": 900,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["vacancy:detail"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/jobseekers",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["jobseekers:list"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/jobseeker/:id",
+    "cacheable": true,
+    "ttlSeconds": 900,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["jobseekers:detail"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/posts",
+    "cacheable": false,
+    "ttlSeconds": 0,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["posts:list"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/posts/:slug",
+    "cacheable": true,
+    "ttlSeconds": 1800,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["posts:detail"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/posts/tag/:slug",
+    "cacheable": true,
+    "ttlSeconds": 300,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["posts:tag"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/companies",
+    "cacheable": true,
+    "ttlSeconds": 600,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["companies:list"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/companies/search",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["companies:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/companies/:slug/detail",
+    "cacheable": true,
+    "ttlSeconds": 1800,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["companies:detail"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/companies/:slug/vacancies",
+    "cacheable": true,
+    "ttlSeconds": 120,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["companies:vacancies"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/professions",
+    "cacheable": true,
+    "ttlSeconds": 600,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "query": { "hasSearch": false },
+    "tags": ["professions:list"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/professions/search",
+    "cacheable": true,
+    "ttlSeconds": 60,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["professions:search"]
+  },
+  {
+    "method": "GET",
+    "pattern": "/api/professions/:slug/vacancies",
+    "cacheable": true,
+    "ttlSeconds": 120,
+    "scope": "public",
+    "varyHeaders": ["accept-language"],
+    "tags": ["professions:vacancies"]
+  }
+]

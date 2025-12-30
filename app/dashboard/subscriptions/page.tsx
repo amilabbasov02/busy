@@ -14,8 +14,8 @@ const SubscriptionsPage = () => {
               <nav id="breadcrumbs" className="dark d-none">
                   <ul>
                       <li><a href="https://busy.az">Baş səhifə</a></li>
-                      <li><a href="https://busy.az/dashboard">İdarə paneli</a></li>
-                      <li><a href="https://busy.az/dashboard/jobs">İdarə et Abunəliyim</a></li>
+                      <li><a href="/dashboard">İdarə paneli</a></li>
+                      <li><a href="/dashboard/jobs">İdarə et Abunəliyim</a></li>
                   </ul>
               </nav>
           </div>

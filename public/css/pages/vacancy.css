@@ -2675,3 +2675,158 @@ screen and (-ms-high-contrast:none) {
     text-decoration: underline;
 }
 /*#78b2e1*/
+.vacancy-header {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+}
+/* Modern Vacancy Page Styles */
+.modern-vacancy-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.modern-vacancy-header {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.modern-header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.modern-company-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.modern-header-info {
+    flex-grow: 1;
+}
+
+.modern-job-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    color: #333;
+}
+
+.modern-company-link {
+    font-size: 18px;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.modern-company-link:hover {
+    color: #007bff;
+}
+
+.modern-vacancy-body {
+    display: flex;
+    gap: 40px;
+}
+
+.modern-main-content {
+    flex: 2;
+}
+
+.modern-sidebar {
+    flex: 1;
+}
+
+.modern-widget {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.modern-widget-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modern-description {
+    line-height: 1.8;
+    color: #666;
+}
+
+.modern-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modern-info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+.modern-info-list li i {
+    margin-right: 12px;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.modern-info-list li strong {
+    font-weight: 600;
+    margin-right: 8px;
+    color: #333;
+}
+
+.modern-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modern-tag {
+    background-color: #e9f5ff;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.modern-apply-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modern-apply-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}

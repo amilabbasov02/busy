@@ -3,9 +3,15 @@ import React, { useState } from 'react';
 import DropifyInput from '@/app/components/DropifyInput';
 import BootstrapSelect from '@/app/components/BootstrapSelect';
 import './jobseeker-profile.css';
+import { useAuth } from '@/app/contexts/AuthContext';
 
 const JobseekerProfilePage = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  const { user, refreshMe } = useAuth();
+  const me = user.me;
+
+  const safeText = (v: any) => (v === null || v === undefined || v === 0 ? '' : String(v));
+  const genderLabel = me?.gender === 1 ? 'Qadın' : 'Kişi';
 
   return (
     <>
@@ -28,7 +34,7 @@ const JobseekerProfilePage = () => {
                       </a>
                     </li>
                     <li role="presentation" data-step="2">
-                      <a href="https://busy.az/dashboard/jobseeker/education">
+                      <a href="/dashboard/jobseeker/education">
                         <span className="round-tab">
                           <i className="head-title">
                             Təhsil
@@ -38,7 +44,7 @@ const JobseekerProfilePage = () => {
                       </a>
                     </li>
                     <li role="presentation" data-step="3">
-                      <a href="https://busy.az/dashboard/jobseeker/experience"><span className="round-tab">
+                      <a href="/dashboard/jobseeker/experience"><span className="round-tab">
                         <i className="head-title">
                           İş təcrübəsi
                         </i>
@@ -52,6 +58,20 @@ const JobseekerProfilePage = () => {
             </div>
           </div>
         </div>
+
+        {user?.token && (
+          <div className="col-xl-12" style={{ marginBottom: 10 }}>
+            <button
+              type="button"
+              className="button ripple-effect"
+              style={{ padding: '8px 14px' }}
+              onClick={() => refreshMe()}
+            >
+              Yenilə məlumatlar (/me)
+            </button>
+          </div>
+        )}
+
         <form method="post" encType="multipart/form-data" style={{ width: '100%' }}>
           <div className="col-xl-12">
             <div className="dashboard-box margin-top-0">
@@ -63,19 +83,19 @@ const JobseekerProfilePage = () => {
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>Ad <span className="text-danger">*</span></h5>
-                      <input type="text" name="name" className="with-border" defaultValue="Amil" />
+                      <input type="text" name="name" className="with-border" defaultValue={safeText(me?.name)} />
                     </div>
                   </div>
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>Soyad <span className="text-danger">*</span></h5>
-                      <input type="text" name="last_name" className="with-border" defaultValue="Abbasov" />
+                      <input type="text" name="last_name" className="with-border" defaultValue={safeText(me?.last_name)} />
                     </div>
                   </div>
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>Cins</h5>
-                      <BootstrapSelect className="with-border" defaultValue="Kişi">
+                      <BootstrapSelect className="with-border" defaultValue={genderLabel}>
                         <option>Kişi</option>
                         <option>Qadın</option>
                       </BootstrapSelect>
@@ -84,7 +104,7 @@ const JobseekerProfilePage = () => {
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>Doğum tarixi <span className="text-danger">*</span></h5>
-                      <input type="date" name="date_of_birth" className="with-border" defaultValue="2002-08-03" />
+                      <input type="date" name="date_of_birth" className="with-border" defaultValue={safeText(me?.date_of_birth)} />
                     </div>
                   </div>
                   <div className="col-xl-6">
@@ -111,13 +131,19 @@ const JobseekerProfilePage = () => {
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>Mobil telefon <span className="text-danger">*</span></h5>
-                      <input type="text" name="mobile" className="with-border" defaultValue="+994-50-9676327" />
+                      <input type="text" name="mobile" className="with-border" defaultValue={safeText(me?.mobile || me?.phone)} />
                     </div>
                   </div>
                   <div className="col-xl-6">
                     <div className="submit-field">
                       <h5>E-mail</h5>
-                      <input type="text" name="jobseeker_email" className="with-border" placeholder="E-mailini daxil et" />
+                      <input
+                        type="text"
+                        name="jobseeker_email"
+                        className="with-border"
+                        placeholder="E-mailini daxil et"
+                        defaultValue={safeText(me?.jobseeker_email || me?.email)}
+                      />
                     </div>
                   </div>
                   <div className="col-xl-6">
@@ -163,10 +189,10 @@ const JobseekerProfilePage = () => {
                   <div className="col-xl-4">
                     <div className="submit-field">
                       <h5>Görünürlülük</h5>
-                      <BootstrapSelect className="with-border" defaultValue="Hamı">
-                        <option>Hamı</option>
-                        <option>Yalnız özüm</option>
-                        <option>Saytda qeydiyyatdan keçənlər</option>
+                      <BootstrapSelect className="with-border" defaultValue={me?.visibility === 'everyone' ? 'Hamı' : (me?.visibility === 'only_me' ? 'Yalnız özüm' : 'Hamı')}>
+                        <option value="everyone">Hamı</option>
+                        <option value="only_me">Yalnız özüm</option>
+                        <option value="registered">Saytda qeydiyyatdan keçənlər</option>
                       </BootstrapSelect>
                     </div>
                   </div>
@@ -190,33 +216,33 @@ const JobseekerProfilePage = () => {
                     <div className="col-xl-6">
                       <div className="submit-field">
                         <h5>Evlilik vəziyyəti</h5>
-                        <BootstrapSelect className="with-border" defaultValue="Qeyd olunmayıb">
-                          <option>Evlidir</option>
-                          <option>Evli deyil</option>
-                          <option>Qeyd olunmayıb</option>
+                      <BootstrapSelect className="with-border" defaultValue={me?.marital_status === 'not_selected' ? 'Qeyd olunmayıb' : safeText(me?.marital_status)}>
+                        <option value="married">Evlidir</option>
+                        <option value="single">Evli deyil</option>
+                        <option value="not_selected">Qeyd olunmayıb</option>
                         </BootstrapSelect>
                       </div>
                     </div>
                     <div className="col-xl-6">
                       <div className="submit-field">
                         <h5>Uşaqlar</h5>
-                        <BootstrapSelect className="with-border" defaultValue="qeyd edilməyib">
-                          <option>Yoxdur</option>
-                          <option>Var</option>
-                          <option>qeyd edilməyib</option>
+                      <BootstrapSelect className="with-border" defaultValue={me?.children === 'not_indicated' ? 'qeyd edilməyib' : safeText(me?.children)}>
+                        <option value="no">Yoxdur</option>
+                        <option value="yes">Var</option>
+                        <option value="not_indicated">qeyd edilməyib</option>
                         </BootstrapSelect>
                       </div>
                     </div>
                     <div className="col-xl-12">
                       <div className="submit-field">
                         <h5>Yaşayış ünvanı</h5>
-                        <input type="text" name="address" className="with-border" placeholder="Yaşayış ünvanı" />
+                      <input type="text" name="address" className="with-border" placeholder="Yaşayış ünvanı" defaultValue={safeText(me?.address)} />
                       </div>
                     </div>
                     <div className="col-xl-6">
                       <div className="submit-field">
                         <h5>Ev telefonu</h5>
-                        <input type="text" name="phone" className="with-border" />
+                      <input type="text" name="phone" className="with-border" defaultValue={safeText(me?.phone)} />
                       </div>
                     </div>
                     <div className="col-xl-6">
@@ -253,7 +279,7 @@ const JobseekerProfilePage = () => {
                     <div className="col-xl-12">
                       <div className="submit-field">
                         <h5>Qısa təsvir <i className="help-icon" data-tippy-placement="right" title="Qısa təsvir"></i></h5>
-                        <textarea name="resume" cols={30} rows={5} className="with-border"></textarea>
+                        <textarea name="resume" cols={30} rows={5} className="with-border" defaultValue={safeText(me?.resume_headline)}></textarea>
                       </div>
                     </div>
                   </div>

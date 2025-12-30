@@ -1,250 +1,132 @@
 "use client";
-import Script from "next/script";
-import styles from "./page.module.css";
-import { useParams } from "next/navigation";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
+import './page.css';
 
-const CompanyVacanciesPage = () => {
-  const params = useParams();
-  const slug = params.slug;
+interface Vacancy {
+    id: number;
+    job_title: string;
+    slug: string | null;
+    created_at: string;
+    is_premium?: boolean;
+    company?: { title: string, logo: string };
+    city?: { title: string };
+}
 
-  return (
-    <div className={styles.companyVacancies}>
-      <div id="wrapper" style={{ overflowY: "hidden", paddingTop: "82px" }}>
-        <div className="clearfix"></div>
+interface ApiResponse {
+    vacancies: Vacancy[];
+    vacancies_count: number;
+}
 
-        <div
-          className="single-page-header"
-          data-background-image="/storage/uploads/KEwXYJOmeA3ApwhIehLOi0yRMNFjfo3EGros70Xf.webp"
-        >
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="single-page-header-inner">
-                  <div className="left-side">
-                    <div className="header-image">
-                      <img
-                        className="lozad"
-                        data-src="/storage/uploads/image/AAgro.jpg"
-                        alt=""
-                        src="/storage/uploads/image/AAgro.jpg"
-                        data-loaded="true"
-                      />
+const ITEMS_PER_PAGE = 10;
+
+async function fetchVacancies(slug: string, page: number): Promise<ApiResponse> {
+    try {
+        const response = await fetch(`/api/bff/api/companies/${slug}/vacancies?page=${page}`, { next: { revalidate: 3600 } });
+        if (!response.ok) {
+            throw new Error('Failed to fetch vacancies');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching vacancies:', error);
+        return { vacancies: [], vacancies_count: 0 };
+    }
+}
+
+function timeAgo(dateString: string): string {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    let interval = seconds / 86400;
+    if (interval > 1) return `${Math.floor(interval)} gün əvvəl`;
+    interval = seconds / 3600;
+    if (interval > 1) return `${Math.floor(interval)} saat əvvəl`;
+    interval = seconds / 60;
+    if (interval > 1) return `${Math.floor(interval)} dəqiqə əvvəl`;
+    return `Bir neçə saniyə əvvəl`;
+}
+
+import { useSearchParams, useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+export default function VacanciesPage() {
+    const params = useParams();
+    const searchParams = useSearchParams();
+    const slug = params.slug as string;
+    const page = searchParams.get('page') || '1';
+    const currentPage = parseInt(Array.isArray(page) ? page[0] : page, 10);
+
+    const [vacancies, setVacancies] = useState<Vacancy[]>([]);
+    const [totalPages, setTotalPages] = useState(0);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (slug) {
+            setLoading(true);
+            fetchVacancies(slug, currentPage).then(data => {
+                setVacancies(data.vacancies || []);
+                setTotalPages(Math.ceil((data.vacancies_count || 0) / ITEMS_PER_PAGE));
+                setLoading(false);
+            });
+        }
+    }, [slug, currentPage]);
+
+    if (loading) {
+        return <div>Yüklənir...</div>;
+    }
+
+    return (
+        <div className="job-listings">
+            {vacancies.length > 0 ? (
+                vacancies.map((vacancy: Vacancy) => (
+                    <div key={vacancy.id} className={`job-card ${vacancy.is_premium ? 'premium' : ''}`}>
+                        {vacancy.is_premium && <div className="premium-badge">Premium</div>}
+                        <div className="job-card-header">
+                            <div className="job-card-title">
+                                <h3><Link href={`/vacancy/${vacancy.slug || vacancy.id}`}>{vacancy.job_title}</Link></h3>
+                            </div>
+                        </div>
+                        <div className="job-card-details">
+                            {vacancy.city?.title && <span><i className="icon-material-outline-location-on"></i> {vacancy.city.title}</span>}
+                            <span><i className="icon-material-outline-access-time"></i> {timeAgo(vacancy.created_at)}</span>
+                        </div>
+                        <Link href={`/vacancy/${vacancy.slug || vacancy.id}`} className="button button-sliding-icon">Ətraflı <i className="icon-material-outline-arrow-right-alt"></i></Link>
                     </div>
-                    <div className="header-details">
-                      <h1>
-                        A Agro <span></span>
-                      </h1>
-                    </div>
-                  </div>
-                  <div className="right-side" style={{ maxWidth: "35%" }}>
-                    <nav id="breadcrumbs" className="white" style={{ display: "none" }}>
-                      <ul>
-                        <li>
-                          <Link href="/">Baş səhifə</Link>
-                        </li>
-                        <li>
-                          <Link href="/companies">Şirkətlər</Link>
-                        </li>
-                        <li>
-                          <Link href={`/company/${slug}`}>A Agro</Link>
-                        </li>
-                        <li>Vakansiyalar</li>
-                      </ul>
+                ))
+            ) : (
+                <p>Hazırda aktiv vakansiya yoxdur.</p>
+            )}
+
+            {totalPages > 1 && (
+                <div className="pagination-container">
+                    <nav className="pagination">
+                        <ul>
+                            {currentPage > 1 && (
+                                <li className="pagination-arrow">
+                                    <Link href={`/company/${slug}/vacancies?page=${currentPage - 1}`}>
+                                        <i className="icon-material-outline-keyboard-arrow-left"></i>
+                                    </Link>
+                                </li>
+                            )}
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                                <li key={p}>
+                                    <Link href={`/company/${slug}/vacancies?page=${p}`} className={currentPage === p ? 'current-page' : ''}>
+                                        {p}
+                                    </Link>
+                                </li>
+                            ))}
+                            {currentPage < totalPages && (
+                                <li className="pagination-arrow">
+                                    <Link href={`/company/${slug}/vacancies?page=${currentPage + 1}`}>
+                                        <i className="icon-material-outline-keyboard-arrow-right"></i>
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
                     </nav>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="background-image-container"
-            style={{
-              backgroundImage:
-                "url('/storage/uploads/KEwXYJOmeA3ApwhIehLOi0yRMNFjfo3EGros70Xf.webp')",
-            }}
-          ></div>
+            )}
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-8 col-lg-8 content-right-offset">
-              <nav className="nav nav-pills nav-justified">
-                <Link
-                  className="button ripple-effect-dark gray"
-                  href={`/company/${slug}`}
-                >
-                  Şirkət haqqında
-                </Link>
-                <Link
-                  className="button ripple-effect"
-                  href={`/company/${slug}/vacancies`}
-                >
-                  Vakansiyalar
-                </Link>
-              </nav>
-              <br />
-              <div className="boxed-list margin-bottom-60">
-                <div className="boxed-list-headline">
-                  <h3>
-                    <i className="icon-material-outline-business-center"></i>{" "}
-                    Vakansiyalar
-                  </h3>
-                </div>
-                <div className="listings-container compact-list-layout">
-                  <Link
-                    href="/vacancy/19058/intern-konullu-maliyye-sobesi"
-                    className="job-listing"
-                  >
-                    <div className="job-listing-details">
-                      <div className="job-listing-description">
-                        <h3 className="job-listing-title">
-                          {" "}
-                          Intern (könüllü) / maliyyə şöbəsi
-                        </h3>
-                        <div className="job-listing-footer">
-                          <ul><li>3796 gün əvvəl</li></ul>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/vacancy/7790/technologist"
-                    className="job-listing"
-                  >
-                    <div className="job-listing-details">
-                      <div className="job-listing-description">
-                        <h3 className="job-listing-title"> Technologist</h3>
-                        <div className="job-listing-footer">
-                          <ul><li>4748 gün əvvəl</li></ul>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/vacancy/7789/finance-manager"
-                    className="job-listing"
-                  >
-                    <div className="job-listing-details">
-                      <div className="job-listing-description">
-                        <h3 className="job-listing-title"> Finance Manager</h3>
-                        <div className="job-listing-footer">
-                          <ul><li>4748 gün əvvəl</li></ul>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/vacancy/7788/procurement-specialist"
-                    className="job-listing"
-                  >
-                    <div className="job-listing-details">
-                      <div className="job-listing-description">
-                        <h3 className="job-listing-title">
-                          {" "}
-                          Procurement Specialist
-                        </h3>
-                        <div className="job-listing-footer">
-                          <ul><li>4748 gün əvvəl</li></ul>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4">
-              <div className="sidebar-container">
-                <div className="sidebar-widget">
-                  <h3>Dostlarınla paylaş</h3>
-
-                  <button className="bookmark-button margin-bottom-25">
-                    <span className="bookmark-icon"></span>
-                    <span className="bookmark-text">Gözaltına sal</span>
-                    <span className="bookmarked-text">company.Bookmarked</span>
-                  </button>
-
-                  <div className="copy-url">
-                    <input
-                      id="copy-url"
-                      type="text"
-                      defaultValue=""
-                      className="with-border"
-                    />
-                    <button
-                      className="copy-url-button ripple-effect"
-                      data-clipboard-target="#copy-url"
-                      data-tippy-placement="top"
-                      data-tippy=""
-                      data-original-title="Copy to Clipboard"
-                    >
-                      <i className="icon-material-outline-file-copy"></i>
-                    </button>
-                  </div>
-
-                  <div className="share-buttons margin-top-25">
-                    <div className="share-buttons-trigger">
-                      <i className="icon-feather-share-2"></i>
-                    </div>
-                    <div className="share-buttons-content">
-                      <span>
-                        Maraqlıdır? <strong>Paylaş!</strong>
-                      </span>
-                      <ul className="share-buttons-icons">
-                        <li>
-                          <a
-                            href={`https://www.facebook.com/sharer.php?u=https://busy.az/company/${slug}/vacancies`}
-                            target="_blank"
-                            data-button-color="#3b5998"
-                            data-tippy-placement="top"
-                            data-tippy=""
-                            data-original-title="Share on Facebook"
-                            style={{ backgroundColor: "rgb(59, 89, 152)" }}
-                          >
-                            <i className="icon-brand-facebook-f"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href={`https://twitter.com/intent/tweet?url=https://busy.az/company/${slug}/vacancies`}
-                            target="_blank"
-                            data-button-color="#1da1f2"
-                            data-tippy-placement="top"
-                            data-tippy=""
-                            data-original-title="Share on Twitter"
-                            style={{ backgroundColor: "rgb(29, 161, 242)" }}
-                          >
-                            <i className="icon-brand-twitter"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href={`https://www.linkedin.com/sharing/share-offsite/?url=https://busy.az/company/${slug}/vacancies`}
-                            target="_blank"
-                            data-button-color="#0077b5"
-                            data-tippy-placement="top"
-                            data-tippy=""
-                            data-original-title="Share on LinkedIn"
-                            style={{ backgroundColor: "rgb(0, 119, 181)" }}
-                          >
-                            <i className="icon-brand-linkedin-in"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="margin-top-15"></div>
-        <Script src="https://busy.az/js/app.js?v=1" />
-      </div>
-    </div>
-  );
-};
-
-export default CompanyVacanciesPage;
+    );
+}

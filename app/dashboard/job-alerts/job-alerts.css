@@ -1,0 +1,80 @@
+.job-alerts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.job-alerts-table th,
+.job-alerts-table td {
+    padding: 20px;
+    text-align: left;
+    border: none;
+    vertical-align: middle;
+}
+
+.job-alerts-table thead th {
+    background-color: #f0ebff;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #e0d9f5;
+}
+
+.job-alerts-table tbody tr {
+     border-bottom: 1px solid #f0f0f0;
+}
+
+.job-alerts-table tbody tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
+
+.job-alerts-table tbody tr:hover {
+    background-color: #f0ebff;
+}
+
+.job-alerts-table td:last-child {
+    text-align: center;
+}
+
+.job-alerts-table .job-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.job-alerts-table .job-criteria {
+    color: #777;
+    font-size: 14px;
+}
+
+.job-alerts-table .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.job-alerts-table .action-buttons .button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border-radius: 50%;
+}
+
+/* Overriding global icon styles for this specific table */
+.job-alerts-table .action-buttons .button i {
+    position: static;
+    top: auto;
+    height: auto;
+    width: auto;
+    line-height: 1;
+    margin-left: 0;
+}
+
+.dashboard-headline .sort-by {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}

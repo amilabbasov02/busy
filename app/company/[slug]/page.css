@@ -1,0 +1,102 @@
+img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.job-listings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card .button {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    background: #fff !important;
+    color: #0066ff !important;
+}
+/* Share Section Styles */
+.shareSection {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.shareSection h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.socialShareButtons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.socialButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #eef2ff;
+    color: #4f46e5;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.socialButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.copyUrlContainer {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+}
+
+.copyUrlInput {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    background-color: #fff;
+    color: #374151;
+    font-size: 0.9rem;
+    height: 64px !important;
+}
+
+.copyUrlInput:focus {
+    outline: none;
+}
+
+.copyUrlButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4f46e5;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.copyUrlButton:hover {
+    background-color: #4338ca;
+}

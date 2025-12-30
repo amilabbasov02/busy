@@ -3,15 +3,27 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
+import { useSession, signOut } from 'next-auth/react';
 
 const Header = () => {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn: isLegacyLoggedIn, logout: legacyLogout, user } = useAuth();
+  const { data: session } = useSession();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter();
 
+  const isLoggedIn = isLegacyLoggedIn || !!session;
+
+  const displayName = user?.me?.name || (session?.user?.name as string | undefined) || 'İstifadəçi';
+  const displayRole = user?.me?.role ? user.me.role : (isLegacyLoggedIn ? 'user' : '');
+
   const handleLogout = (e: React.MouseEvent) => {
     e.preventDefault();
-    logout();
+    if (session) {
+      signOut({ callbackUrl: '/' });
+    }
+    if (isLegacyLoggedIn) {
+      legacyLogout();
+    }
     router.push('/');
   };
 
@@ -95,7 +107,7 @@ const Header = () => {
                                     <div className="user-details">
                                         <div className="user-avatar status-online"><img src="/images/user-avatar-placeholder.png" alt="" /></div>
                                         <div className="user-name">
-                                             Busy Admin <span>Admin</span>
+                                             {displayName} {displayRole ? <span>{displayRole}</span> : null}
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,21 @@
+.job-card .button {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    background: #fff !important;
+    color: #0066ff !important;
+}
+
+.job-card .button:hover {
+    color: #fff !important;
+}

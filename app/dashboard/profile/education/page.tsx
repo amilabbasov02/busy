@@ -22,7 +22,7 @@ const EducationPage = () => {
                             <div className="connecting-line"></div>
                             <ul className="nav nav-tabs" role="tablist">
                               <li role="presentation" data-step="1" className="disabled">
-                                <a href="https://busy.az/dashboard/jobseeker/profile">
+                                <a href="/dashboard/jobseeker/profile">
                                   <span className="round-tab">
                                     <i className="head-title">Şəxsi məlumatlar</i>
                                     <i className="fas fa-user-edit icon"></i> 1
@@ -30,7 +30,7 @@ const EducationPage = () => {
                                 </a>
                               </li>
                               <li role="presentation" data-step="2" className="active">
-                                <a href="https://busy.az/dashboard/jobseeker/education" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded={false}>
+                                <a href="/dashboard/jobseeker/education" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded={false}>
                                   <span className="round-tab">
                                     <i className="head-title">Təhsil</i>
                                     <i className="icon-line-awesome-university icon"></i>2
@@ -38,7 +38,7 @@ const EducationPage = () => {
                                 </a>
                               </li>
                               <li role="presentation" data-step="3" className="disabled">
-                                <a href="https://busy.az/dashboard/jobseeker/experience">
+                                <a href="/dashboard/jobseeker/experience">
                                   <span className="round-tab">
                                     <i className="head-title">İş təcrübəsi</i>
                                     <i className="icon-line-awesome-windows icon"></i> 3

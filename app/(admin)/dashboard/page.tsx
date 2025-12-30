@@ -64,7 +64,7 @@ const DashboardPage = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://busy.az/dashboard/profile/settings">
+                    <a href="/dashboard/profile/settings">
                       <i className="icon-material-outline-supervisor-account"></i>
                       Profil ayarları
                     </a>
@@ -84,7 +84,7 @@ const DashboardPage = () => {
       <div className="dashboard-content-container">
         <div className="dashboard-content-inner">
           <div className="dashboard-headline">
-            <h3>Salam, Busy Admin!</h3>
+            <h3>Salam!</h3>
             <span>Salam</span>
             <nav id="breadcrumbs" className="dark d-none">
               <ul>

@@ -1,8 +1,15 @@
 "use client";
 import React from 'react';
-import Sidebar from '../../components/Sidebar';
+import { useAuth } from '@/app/contexts/AuthContext';
 
 const ProfileSettingsPage = () => {
+  const { user, refreshMe } = useAuth();
+  const me = user.me;
+
+  const safeText = (v: any) => (v === null || v === undefined || v === 0 ? '' : String(v));
+  const fullName = [safeText(me?.name), safeText(me?.last_name)].filter(Boolean).join(' ');
+  const accountRole = me?.role === 'company' ? 'işəgötürən (employer)' : 'işaxtaran (jobseeker)';
+
   return (
     <>
         <div className="dashboard-headline">
@@ -10,7 +17,57 @@ const ProfileSettingsPage = () => {
         </div>
 
         <div className="row">
-            <form method="post" action="https://busy.az/dashboard/profile/settings" encType="multipart/form-data">
+          <div className="col-xl-12">
+            <div className="dashboard-box margin-top-0">
+              <div className="headline">
+                <h3><i className="icon-material-outline-info"></i> Haqqında</h3>
+              </div>
+              <div className="content with-padding">
+                {user?.token ? (
+                  <>
+                    <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+                      <div>
+                        <strong>Ad:</strong> {user.me?.name || '-'}
+                      </div>
+                      <div>
+                        <strong>Email:</strong> {user.me?.email || '-'}
+                      </div>
+                      <div>
+                        <strong>ID:</strong> {user.me?.id ? String(user.me.id) : '-'}
+                      </div>
+                      <div>
+                        <strong>Rol:</strong> {user.me?.role || '-'}
+                      </div>
+                      <div>
+                        <strong>Son giriş:</strong> {user.me?.last_login || '-'}
+                      </div>
+                      <button
+                        type="button"
+                        className="button ripple-effect"
+                        style={{ padding: '8px 14px' }}
+                        onClick={() => refreshMe()}
+                      >
+                        Yenilə (/me)
+                      </button>
+                    </div>
+                    {!user.me && (
+                      <p style={{ marginTop: 10 }}>
+                        /me məlumatı hələ yüklənməyib. “Yenilə (/me)” düyməsi ilə yenidən sorğu ata bilərsiniz.
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p>
+                    Bu hissəni görmək üçün daxil olun (token tapılmadı).
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+            <form method="post" action="/dashboard/profile/settings" encType="multipart/form-data">
                 <div className="col-xl-12">
                     <div className="dashboard-box margin-top-0">
                         <div className="headline">
@@ -32,13 +89,26 @@ const ProfileSettingsPage = () => {
                                         <div className="col-xl-6">
                                             <div className="submit-field">
                                                 <h5>Ad-soyad</h5>
-                                                <input type="text" name="name" className="with-border" defaultValue="Busy Admin" required id="name" />
+                                                <input
+                                                  type="text"
+                                                  name="name"
+                                                  className="with-border"
+                                                  defaultValue={fullName}
+                                                  required
+                                                  id="name"
+                                                />
                                             </div>
                                         </div>
                                         <div className="col-xl-6">
                                             <div className="submit-field">
                                                 <h5>Mobil telefon</h5>
-                                                <input type="text" name="mobile" className="with-border" defaultValue="994508664443" id="phone" />
+                                                <input
+                                                  type="text"
+                                                  name="mobile"
+                                                  className="with-border"
+                                                  defaultValue={safeText(me?.phone || me?.mobile)}
+                                                  id="phone"
+                                                />
                                             </div>
                                         </div>
                                         <div className="col-xl-6">
@@ -46,9 +116,15 @@ const ProfileSettingsPage = () => {
                                                 <h5>hesabın növü</h5>
                                                 <div className="account-type">
                                                     <div>
-                                                        <input type="radio" name="account-type-radio" id="freelancer-radio" className="account-type-radio" defaultChecked />
+                                                        <input
+                                                          type="radio"
+                                                          name="account-type-radio"
+                                                          id="freelancer-radio"
+                                                          className="account-type-radio"
+                                                          defaultChecked
+                                                        />
                                                         <label htmlFor="freelancer-radio" className="ripple-effect-dark green-button">
-                                                            <i className="icon-material-outline-fingerprint"></i> işəgötürən (employer)
+                                                            <i className="icon-material-outline-fingerprint"></i> {accountRole}
                                                         </label>
                                                     </div>
                                                 </div>
@@ -57,7 +133,7 @@ const ProfileSettingsPage = () => {
                                         <div className="col-xl-6">
                                             <div className="submit-field">
                                                 <h5>E-poçt ünvanı</h5>
-                                                <input type="email" name="email" className="with-border" defaultValue="admin@busy.az" />
+                                                <input type="email" name="email" className="with-border" defaultValue={safeText(me?.email)} />
                                             </div>
                                         </div>
                                     </div>

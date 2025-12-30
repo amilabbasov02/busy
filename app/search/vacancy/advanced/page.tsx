@@ -1,29 +1,20 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import NewAdvancedSearchFilters from '../../../components/NewAdvancedSearchFilters';
 
 const AdvancedSearchPage = () => {
-    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [searchResults, setSearchResults] = useState<any[]>([]);
-    const [formData, setFormData] = useState({
-        professions: [],
-        cities: [],
-        worktypes: [],
-        educations: [],
-        experiences: '',
-        minimum_salary: '',
-        maximum_salary: ''
-    });
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [allMockResults, setAllMockResults] = useState<any[]>([]);
+    const [isAdvancedSearchOpen, setAdvancedSearchOpen] = useState(true);
+
 
     useEffect(() => {
         // Add CSS files
         const cssFiles = [
             '/css/style.css',
             '/css/colors/blue.css',
-            '/css/advsearch.css'
         ];
         cssFiles.forEach(file => {
             if (!document.querySelector(`link[href="${file}"]`)) {
@@ -34,70 +25,16 @@ const AdvancedSearchPage = () => {
             }
         });
 
-        // Initialize selectpicker and destroy on unmount
-        const initSelectPicker = () => {
-            if (typeof (window as any)?.$?.fn?.selectpicker === 'function') {
-                (window as any).$('.selectpicker').selectpicker();
-                return true;
-            }
-            return false;
-        };
-
-        const intervalId = setInterval(() => {
-            if (initSelectPicker()) {
-                clearInterval(intervalId);
-            }
-        }, 100);
-
-        // Cleanup function
-        return () => {
-            clearInterval(intervalId);
-            if (typeof (window as any)?.$?.fn?.selectpicker === 'function') {
-                if ((window as any).$('.selectpicker').data('selectpicker')) {
-                    (window as any).$('.selectpicker').selectpicker('destroy');
-                }
-            }
-        };
-    }, []);
-
-    const handleCategoryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const text = e.target.getAttribute('data-text');
-        if (text) {
-            setSelectedCategories(prev =>
-                e.target.checked ? [...prev, text] : prev.filter(c => c !== text)
-            );
+        if (typeof window.jQuery !== 'undefined') {
+            const $ = window.jQuery;
+            $('.selectpicker').selectpicker({
+                noneSelectedText: "seçilməyib"
+            });
         }
-    };
-
-    const selectAllCategories = () => {
-        const allCategories: string[] = [];
-        const checkboxes = document.querySelectorAll('.chb input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            (checkbox as HTMLInputElement).checked = true;
-            const text = (checkbox as HTMLInputElement).getAttribute('data-text');
-            if (text) {
-                allCategories.push(text);
-            }
-        });
-        setSelectedCategories(allCategories);
-    };
-
-    const unselectAllCategories = () => {
-        const checkboxes = document.querySelectorAll('.chb input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            (checkbox as HTMLInputElement).checked = false;
-        });
-        setSelectedCategories([]);
-    };
-
-    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Mock search results
         // Mock search results with pagination
         const allResults = Array.from({ length: 25 }, (_, i) => ({
             id: i + 1,
@@ -117,190 +54,59 @@ const AdvancedSearchPage = () => {
         setSearchResults(allMockResults.slice(start, end));
     }, [currentPage, allMockResults]);
 
-    const handleClearAndClose = () => {
-        unselectAllCategories();
-        setIsPopupOpen(false);
-    };
-
     return (
         <div id="wrapper" style={{ overflowY: 'hidden' }}>
             <div className="clearfix"></div>
-            <div id="titlebar" className="gradient">
+            <div className="intro-banner" style={{padding: '150px 0 105px 0', backgroundColor: '#f9f9f9'}}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
-                            <h2>Ətraflı axtarış</h2>
-                            <nav id="breadcrumbs" className="dark d-none">
-                                <ul itemScope itemType="http://schema.org/BreadcrumbList">
-                                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="">
-                                            Baş səhifə
-                                            <meta itemProp="position" content="1" />
-                                            <meta itemProp="name" content="Baş səhifə" />
-                                        </a>
-                                    </li>
-                                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="/search">
-                                            Axtar
-                                            <meta itemProp="position" content="2" />
-                                            <meta itemProp="name" content="Axtar" />
-                                        </a>
-                                    </li>
-                                    <li style={{ display: 'none' }} itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                                        <a itemProp="item" href="/search/vacancy/advanced">
-                                            Ətraflı axtarış
-                                            <meta itemProp="position" content="3" />
-                                            <meta itemProp="name" content="Ətraflı axtarış" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <div className="col-md-12 headline-slogan">
+                        <div className="banner-headline" style={{marginBottom: '35px'}}>
+                            <h3>
+                            <strong>Bizi işlə dost edir</strong>
+                            <br />
+                            <span>Azərbaycanın #1 iş axtarma saytı</span>
+                            </h3>
+                        </div>
                         </div>
                     </div>
+                    <form action="/search" method="GET">
+                        <div className="row">
+                        <div className="col-md-12">
+                            <div className="intro-banner-search-form" style={{ marginTop: '20px' }}>
+                            <div className="intro-search-field with-label">
+                                <label htmlFor="intro-keywords" className="field-title ripple-effect">istədiyin işin adını axtarışa ver</label>
+                                <input id="intro-keywords" type="text" name="q" placeholder="vakansiyanın adı yaxud açar-söz" autoComplete="off" />
+                            </div>
+                            <div className="intro-search-select">
+                                <select className="selectpicker" name="type" data-width="180px">
+                                    <option value="vacancy">Vakansiya</option>
+                                    <option value="company">Şirkət</option>
+                                    <option value="skill">Bilik</option>
+                                    <option value="profession">İxtisas</option>
+                                </select>
+                            </div>
+                            <div className="intro-search-button">
+                                <button className="button ripple-effect" role="submit">axtar</button>
+                            </div>
+                            </div>
+                            <div className="accordion">
+                            <div className={`accordion-panel ${isAdvancedSearchOpen ? 'accordion-expanded' : ''}`} style={{ border: 'none' }}>
+                                <h3 className="accordion-header" onClick={() => setAdvancedSearchOpen(!isAdvancedSearchOpen)} style={{ cursor: 'pointer' }}>
+                                <i className="fas fa-search"></i>&nbsp;Ətraflı axtarış
+                                <span id="arrow"><i className={`fas ${isAdvancedSearchOpen ? 'fa-caret-up' : 'fa-caret-down'}`} style={{ color: '#777777' }}></i></span>
+                                </h3>
+                                <div className="accordion-body" id="accordion-body" style={{ display: isAdvancedSearchOpen ? 'block' : 'none' }}>
+                                    <NewAdvancedSearchFilters onSearch={(filters) => console.log(filters)} />
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div className="container overflow-hidden">
-                <form method="get" action="" className="adv_search_form" onSubmit={handleSubmit}>
-                    <input type="hidden" name="search" value="yes" />
-                    <div className="row">
-                        <div className="sidebar-widget col-xl-4 col-md-4">
-                            <div className="section-headline margin-top-25 margin-bottom-12">
-                                <h5>Kateqoriyalar</h5>
-                            </div>
-                            <div id="selectionDisplay">
-                                {selectedCategories.map((category, index) => (
-                                    <span key={index}>{category}</span>
-                                ))}
-                            </div>
-                            <input className="search" type="text" readOnly placeholder="Kateqoriyalar" onClick={() => setIsPopupOpen(true)} />
-
-                            <div className={`pop-up ${isPopupOpen ? 'active_pop' : ''}`}>
-                                <div className="pop-bg" onClick={() => setIsPopupOpen(false)}></div>
-                                <div className="pop form-group address_form_group" id="adJsslot_id">
-                                    <div className="form-select" id="slot_id">
-                                        <div className="region ">
-                                            <label className="chb country" htmlFor="slot_id166">
-                                                <input style={{ marginBottom: '0px !important' }} type="checkbox" data-text="Müştəri xidmətləri" name="categories[]" value="166" id="slot_id166" data-id="166" onChange={handleCategoryChange} checked={selectedCategories.includes('Müştəri xidmətləri')} />
-                                                <span>Müştəri xidmətləri</span>
-                                            </label>
-                                        </div>
-                                        <div className="region  sub_items ">
-                                            <b>
-                                                <img src="/site/images/arrow.svg" alt="" />
-                                            </b>
-                                            <label className="chb country" htmlFor="slot_id3">
-                                                <input style={{ marginBottom: '0px !important' }} type="checkbox" data-text="Mühasibat, idarəetmə uçotu, maliyyə" name="categories[]" value="3" id="slot_id3" data-id="3" onChange={handleCategoryChange} checked={selectedCategories.includes('Mühasibat, idarəetmə uçotu, maliyyə')} />
-                                                <span>Mühasibat, idarəetmə uçotu, maliyyə</span>
-                                            </label>
-                                            <div className="selectable">
-                                                <label className="chb" htmlFor="slot_id26">
-                                                    <input type="checkbox" style={{ marginBottom: '0px !important' }} data-text="Mühasib" name="categories[]" value="26" id="slot_id26" data-id="26" onChange={handleCategoryChange} checked={selectedCategories.includes('Mühasib')} />
-                                                    <span>&nbsp;Mühasib</span>
-                                                </label>
-                                                <label className="chb" htmlFor="slot_id27">
-                                                    <input type="checkbox" style={{ marginBottom: '0px !important' }} data-text="Audit" name="categories[]" value="27" id="slot_id27" data-id="27" onChange={handleCategoryChange} checked={selectedCategories.includes('Audit')} />
-                                                    <span>&nbsp;Audit</span>
-                                                </label>
-                                            </div>
-                                       </div>
-                                   </div>
-                                   <div className="all_select_change" style={{ display: 'block' }}>
-                                       <label className="all_slc_items all_unslc" onClick={handleClearAndClose}>
-                                           <input type="radio" name="fullSelect" />
-                                           <span>Bağla</span>
-                                       </label>
-                                       <label className="all_slc_items all_slc" onClick={() => setIsPopupOpen(false)}>
-                                           <input type="radio" name="fullSelect" />
-                                           <span>Seçin</span>
-                                       </label>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div className="col-xl-4 col-md-4">
-                           <div className="section-headline margin-top-25 margin-bottom-12">
-                               <h5>İxtisaslar</h5>
-                           </div>
-                           <div className="btn-group bootstrap-select show-tick">
-                               <select className="selectpicker" name="professions[]" data-live-search="true" multiple title="seçilməyib">
-                                   <option value="113">.NET developer</option>
-                                   <option value="1833">1C accountant</option>
-                               </select>
-                           </div>
-                       </div>
-
-                       <div className="col-xl-4 col-md-4">
-                           <div className="section-headline margin-top-25 margin-bottom-12">
-                               <h5>Bölgə</h5>
-                           </div>
-                           <div className="btn-group bootstrap-select show-tick">
-                               <select className="selectpicker" name="cities[]" data-live-search="true" multiple title="seçilməyib">
-                                   <option value="1">Bakı</option>
-                                   <option value="2">Sumqayıt</option>
-                               </select>
-                           </div>
-                       </div>
-
-                       <div className="col-xl-4 col-md-4 margin-bottom-10">
-                           <div className="section-headline margin-top-25 margin-bottom-12">
-                               <h5>Məşğulluq növü</h5>
-                           </div>
-                           <div className="btn-group bootstrap-select show-tick">
-                               <select className="selectpicker" name="worktypes[]" data-live-search="true" multiple title="seçilməyib">
-                                   <option value="1">Tam ştat (full time)</option>
-                                   <option value="2">Yarımştat (part time)</option>
-                               </select>
-                           </div>
-                       </div>
-
-                       <div className="col-xl-4 col-md-4">
-                           <div className="section-headline margin-top-25 margin-bottom-12">
-                               <h5>Təhsil</h5>
-                           </div>
-                           <div className="btn-group bootstrap-select show-tick">
-                               <select className="selectpicker" name="educations[]" data-live-search="true" multiple title="seçilməyib">
-                                   <option value="2">Orta</option>
-                                   <option value="7">Ali</option>
-                               </select>
-                           </div>
-                       </div>
-
-                       <div className="col-xl-4 col-md-4">
-                           <div className="section-headline margin-top-25 margin-bottom-12">
-                               <h5>İş təcrübəsi (minimum il)</h5>
-                           </div>
-                           <div className="btn-group bootstrap-select">
-                               <select className="selectpicker" name="experiences[]ssa" data-live-search="true" title="Seçilməyib" defaultValue="0">
-                                   <option value="0" disabled>Seçilməyib</option>
-                                   <option value="1">Tələb olunmur</option>
-                               </select>
-                           </div>
-                       </div>
-
-                        <div className="col-xl-2 col-md-2">
-                            <div className="section-headline margin-top-25" style={{ marginBottom: '13px' }}>
-                                <h5>Minimum maaş</h5>
-                            </div>
-                            <input type="number" name="minimum_salary" id="minimum" placeholder="minimum" onChange={handleFormChange} />
-                        </div>
-
-                        <div className="col-xl-2 col-md-2">
-                            <div className="section-headline margin-top-25 " style={{ marginBottom: '13px' }}>
-                                <h5>Maksimum maaş</h5>
-                            </div>
-                            <input type="number" name="maximum_salary" id="maximum" placeholder="maximum" onChange={handleFormChange} />
-                        </div>
-
-                        <div className="col-xl-12 col-md-12 margin-top-20">
-                            <button type="submit" className="button ripple-effect button-sliding-icon" style={{ width: '125.297px' }}>
-                                Göndər
-                                <i className="icon-feather-check"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+            <div className="container">
                 <div className="margin-top-70"></div>
 
                 {searchResults.length > 0 && (
