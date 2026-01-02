@@ -2359,3 +2359,61 @@ ul.dashboard-box-list > li {
     font-size: 18px;
     color: #333;
 }
+
+/* =============================
+   Responsive fixes (global)
+   ============================= */
+
+/* Prevent accidental horizontal scrolling on mobile caused by fixed widths */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Media elements should never overflow containers */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* React phone input was forcing 400px width which breaks mobile layouts */
+.react-tel-input,
+.react-tel-input .form-control {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Keep desktop looking reasonable */
+@media (min-width: 769px) {
+    .react-tel-input .form-control {
+        max-width: 400px !important;
+    }
+}
+
+/* =============================
+   Mobile menu (mmenu) fixes
+   ============================= */
+
+/*
+  Your CSS includes a very broad rule that forces ALL <a> tags to blue.
+  MMenu expects inherited white text. Force white in the off-canvas mobile menu.
+*/
+.mm-menu,
+.mm-menu a,
+.mm-menu .mm-navbar a,
+.mm-menu .mm-listview > li > a,
+.mm-menu .mm-listview > li > span {
+    color: #fff !important;
+}
+
+.mm-menu .mm-listview > li:hover > a,
+.mm-menu .mm-listview > li.mm-selected > a {
+    color: #fff !important;
+}
+
+.mm-menu .mm-listview > li > a i {
+    color: inherit !important;
+}

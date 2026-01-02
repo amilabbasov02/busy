@@ -61,7 +61,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoreProvider>
           <NextAuthProvider>
             <AuthProvider>
-              <div id="wrapper" style={{ overflowY: 'hidden' }}>
+              {/*
+                NOTE: `overflowY: hidden` blocks vertical scrolling on many pages (especially mobile)
+                and often causes “responsivlik” problemləri (content gizlənir, scroll olmur).
+              */}
+              <div id="wrapper">
                 <Header />
                 
                 {children}
